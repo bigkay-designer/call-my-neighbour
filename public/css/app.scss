@@ -1,0 +1,179 @@
+body{
+    margin: 0;
+    overflow-x: hidden;
+}
+
+// nav bar
+.nav-header{    
+    .nav{
+        padding: 6px;
+        .container{
+            display: grid;
+            grid-template-columns: 20% 80%;
+            h1{
+                margin: 0;
+            }
+            .nav-bar{
+                display: grid;
+                grid-template-columns:60% 40% ;
+                a{
+                    display: inline-block;
+                    color: #666666;                    font-size: 20px;
+                    text-decoration: none;
+                    text-transform: capitalize;
+                    cursor: pointer;
+                    
+                    &:hover{
+                        border-left: 1px solid rgb(94, 92, 92);
+                        border-right: 1px solid rgb(94, 92, 92);
+                        border-top: 1px solid rgb(94, 92, 92);
+                        padding: 4px;
+                        border-radius: 1px;
+                    }
+                }
+                
+                .nav-links{
+                    display: flex;
+                    justify-content: left;
+                    align-items: center;
+                    a{
+                        margin-right: 15px;
+                    }
+                }
+                .nav-login{
+                    text-align: center;
+                    a{
+                        margin-right: 15px;
+                    }
+                    .signup-border{
+                        border-radius: 6px;
+                        padding: 10px;
+                        background-color: #2B860B;
+                        color: #f3f0f0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// index page
+
+.main-index{
+    margin-top: 10px;
+    .show-case{
+        background: url(../images/showcaseimg.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 478px;
+
+        .content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;   
+            top: 150px;
+            color: #fff;
+            h1{
+                margin: 0;
+                font-size: 66px;
+                text-transform: capitalize;
+            }
+            p{
+                font-size: 36px;
+                text-transform: capitalize;
+                width: 65%;
+                text-align: center;
+                margin: 0;
+                mix-blend-mode: color-dodge;
+                border: 1px solid rgba(0, 0, 0, 0.83);
+            }
+            a{
+                color: #fff;
+                background-color: #2B860B;
+                text-transform: capitalize;
+                text-decoration: none;
+                font-size: 22px;
+                padding: 12px;
+                border-radius: 8px;
+                margin-top: 10px;
+            }
+        }
+    }
+    .container{
+        width: 85%;
+        margin: auto;
+        background-color: rgba(184, 248, 184, 0.1);
+        padding: 10px;
+
+        .slogan-div{
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            background: rgba(216, 213, 213, 0.1);
+            border-radius: 12px;
+            padding: 10px;
+
+            .slogans{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top:25px;
+
+                h1{
+                    margin: 0;
+                }
+                p{
+                    width: 85%;
+                    margin:10px auto;
+                    text-align: center;
+                    font-size: 18px;
+                }
+            }
+        }
+        .testimonial-div{
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            background: rgba(218, 159, 159, 0.1);
+            border-radius: 12px;
+            padding: 10px;
+
+            .title{
+                font-family: 'Ribeye Marrow', cursive;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 30px;
+                line-height: 87px;
+                text-align: center;
+                text-transform: capitalize;
+            }
+            .slogan-bg{
+                .testimonials{
+                    background-color: #fff;
+                    border-radius: 8px;
+                    width: 65%;
+                    padding-bottom: 60px;
+                    margin: 20px auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    h1{
+                        margin:10px 0 0 0;
+                    }
+                    p{
+                        width: 85%;
+                        margin:10px auto;
+                        text-align: center;
+                        font-size: 18px;
+                        color: rgba($color: #000000, $alpha: 0.7);
+                    }
+                }
+
+            }
+        }
+    }
+}
