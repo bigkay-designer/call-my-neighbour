@@ -1,0 +1,31 @@
+<%- include ('partials/header')%> <%- include ('partials/nav')%>
+
+<main class="main-new">
+  <section class="form-sec">
+    <div class="form-title">
+      <h1>sign up</h1>
+    </div>
+    <form class="new-form" action="/profile" method="POST">
+      <div class="data">
+        <label for="firstName">first name</label>
+        <input type="text" name="firstName">    
+        <label for="lastName">last name</label>
+        <input type="text" name="lastName">    
+        <label for="location">post code</label>
+        <input type="text" name="location" required />
+        <label for="address">first line of your address</label>
+        <input type="text" name="address" id="">
+      </div>
+        <div class="gender">
+          <input type="radio" name="gender" value="male">Male
+          <input type="radio" name="gender" value="female">Female
+          <input type="radio" name="gender" value="other">Other
+        </div>
+        <div class="new-btn">
+        <button type="submit">signup</button>
+        </div>
+    </form>
+  </section>
+</main>
+
+<%- include ('partials/footer')%>

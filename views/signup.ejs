@@ -1,0 +1,24 @@
+<%- include ('partials/header')%> <%- include ('partials/nav')%>
+
+<main class="main-new">
+  <section class="form-sec">
+    <div class="form-title">
+      <h1>sign up</h1>
+    </div>
+    <form class="new-form" action="/signup" method="POST">
+        <div class="data">
+            <label for="email">email</label>
+            <input type="email" name="email" required />
+            <label for="username">username</label>
+            <input type="text" name="username" required />
+            <label for="password">password</label>
+            <input type="password" name="password" required>
+        </div>
+      <div class="new-btn">
+        <button type="submit">sign up</button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<%- include ('partials/footer')%>
