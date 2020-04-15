@@ -62,12 +62,6 @@ app.use(profileRoute)
 
 
 
-
-
-
-
-
-
 //============================================
 // redirect all wrong urls to here
 app.get('*', (req, res) => {

@@ -1,10 +1,10 @@
 let log = console.log;
 let express = require('express'),
     router = express.Router()
+    var NodeGeocoder = require('node-geocoder');
 
 let profile = require('../models/profile')
 
-var NodeGeocoder = require('node-geocoder');
 
 var options = {
     provider: 'google',
@@ -25,13 +25,15 @@ router.get('/profile', (req, res) => {
 })
 
 router.post('/profile', (req, res) => {
-    let name = [{
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        phone: req.body.phone
-    }] 
-    let gender =  req.body.gender
-    
+    let firstName = req.body.firstName
+    let lastName = req.body.lastName
+    let phone = req.body.phone
+    let gender = req.body.gender
+    let address = req.body.address
+    let author = {
+        id: req.user._id,
+        username: req.user.username
+    }
     geocoder.geocode(req.body.location, function (err, data) {
         if (err || !data.length) {
             req.flash('error', 'Invalid address');
@@ -41,28 +43,13 @@ router.post('/profile', (req, res) => {
         var lat = data[0].latitude;
         var lng = data[0].longitude;
         var location = data[0].formattedAddress;
-        let address = [{
-            streetName: req.body.address,
-            location: location,
-            lat: lat,
-            lng: lng
-        }]
-        let newData = [{
-            name: name,
-            gender: gender,
-            address: address,
-            author: {
-                id: req.user._id,
-                email:req.user.email,
-                username: req.user.username
-            }
-
-        }]
-        profile.create(newData, (err, profile) => {
+        let newProfile = {firstName: firstName, lastName: lastName, phone: phone, gender: gender, address: address, author: author, location: location, lat: lat, lng: lng}
+        
+        profile.create(newProfile, (err, profile) => {
             if (err) {
                 log(err)
             } else {
-                log(profile)
+                log(req.body)
                 res.redirect('/index')
             }
         })

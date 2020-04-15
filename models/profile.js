@@ -1,19 +1,14 @@
 let mongoose = require('mongoose')
 
 let profileSchema = new mongoose.Schema({
-    name: [{
-        firstName: String,
-        lastName: String,
-        phone: Number
-    }],
+    firstName: String,
+    lastName: String,
+    phone: Number,
+    location: String,
+    lat: Number,
+    lng: Number,
     gender: String,
-    
-    address: [{
-        streetName: String,
-        location: String,
-        lat: Number,
-        lng: Number,
-    }],
+    address: String,
     author: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
