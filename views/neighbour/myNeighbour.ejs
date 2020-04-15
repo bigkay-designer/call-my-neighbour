@@ -1,0 +1,60 @@
+<%- include ('../partials/header') %> 
+<%- include ('../partials/nav') %> 
+<main class="myneighbour-main">
+    <div class="container">
+        <div id="map"></div>
+        <section class="sec-search">
+            <div class="form">
+                <form action="">
+                    <input type="text" name="search" placeholder="Search" required>
+                    <input type="submit" value="search">
+                    
+                </form>
+            </div>
+        </section>
+        <section class="sec-content">
+            <% profile.forEach((profile)=>{ %>
+                <div class="profile">
+                    <div class="content">
+                    <h1>name: <span><%= profile.name[0].firstName %> <%= profile.name[0].lastName %></span></h1> 
+                    <h2>number: <span><%= profile.name[0].phone%></span></h2>
+                </div>
+                <div id="map"></div>
+                </div>
+            <% }) %>
+        </section>
+    </div>
+</main>
+
+
+<script>
+    function initMap() {
+        let lat = <%= profile[0].address[0].lat %>;
+        let lng = <%= profile[0].address[0].lng %>;
+        var center = {lat: lat, lng: lng };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+            center: center,
+            scrollwheel: false
+        });
+        var contentString = `
+        <strong><%= profile[0].name[0].firstName %><br />
+        <%= profile[0].address[0].location %></strong>
+        <p><%= profile[0].address[0].streetName %></p>
+        `
+        var infowindow = new google.maps.InfoWindow({
+        content: contentString
+        });
+        var marker = new google.maps.Marker({
+            position: center,
+            map: map
+        });
+        marker.addListener('click', function() {
+        infowindow.open(map, marker);
+        });
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBABbRsdzWy_fqTinBgydyxNVjGJVUfBJk&callback=initMap"></script>
+  
+
+<%- include ('../partials/footer') %> 

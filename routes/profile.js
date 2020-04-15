@@ -28,6 +28,7 @@ router.post('/profile', (req, res) => {
     let name = [{
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        phone: req.body.phone
     }] 
     let gender =  req.body.gender
     
@@ -68,16 +69,17 @@ router.post('/profile', (req, res) => {
     })
 })
 
-//show descripton
-router.get('/index', (req, res) => {
-    profile.find({}, (err, profile) => {
+// my neighbour page
+router.get('/myNeighbour', (req, res) => {
+    profile.find({},(err, profile) => {
         if (err) {
             log(err)
         } else {
-            res.render('./neighbour/index', {profile: profile})
+            res.render('./neighbour/myNeighbour', {profile: profile})
         }
     })
 })
+
 
 
 module.exports = router

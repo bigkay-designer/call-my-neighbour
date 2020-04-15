@@ -4,6 +4,7 @@ let profileSchema = new mongoose.Schema({
     name: [{
         firstName: String,
         lastName: String,
+        phone: Number
     }],
     gender: String,
     

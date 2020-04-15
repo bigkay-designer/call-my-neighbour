@@ -8,13 +8,15 @@
     <form class="new-form" action="/profile" method="POST">
       <div class="data">
         <label for="firstName">first name</label>
-        <input type="text" name="firstName">    
+        <input type="text" name="firstName"required>    
         <label for="lastName">last name</label>
-        <input type="text" name="lastName">    
+        <input type="text" name="lastName"required>    
         <label for="location">post code</label>
         <input type="text" name="location" required />
         <label for="address">first line of your address</label>
-        <input type="text" name="address" id="">
+        <input type="text" name="address" id=""required>
+        <label for="phone">mobile number</label>
+        <input type="number" name="phone" required>
       </div>
         <div class="gender">
           <input type="radio" name="gender" value="male">Male

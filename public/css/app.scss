@@ -28,7 +28,6 @@ body{
                         border-left: 1px solid rgb(94, 92, 92);
                         border-right: 1px solid rgb(94, 92, 92);
                         border-top: 1px solid rgb(94, 92, 92);
-                        padding: 4px;
                         border-radius: 1px;
                     }
                 }
@@ -39,12 +38,14 @@ body{
                     align-items: center;
                     a{
                         margin-right: 15px;
+                        padding: 7px;
                     }
                 }
                 .nav-login{
                     text-align: center;
                     a{
                         margin-right: 15px;
+                        padding: 7px;
                     }
                     .signup-border{
                         border-radius: 6px;
@@ -229,7 +230,7 @@ body{
             }
 
             .form{
-                input{
+                input[type="text"]{
                     margin-top: 10px;
                     width: 60%;
                     height: 40px;
@@ -242,16 +243,21 @@ body{
                     }
                 }
                 .btn{
-                    margin-top: 20px;
-                    a{
-                        font-size: 22px;
-                        background-color: darkgreen;
-                        text-decoration: none;
-                        text-transform: capitalize;
-                        border-radius: 6px;
-                        padding: 10px;
+                    margin-top: 10px;
+                    input{
                         background-color: #2B860B;
-                        color: #f3f0f0;
+                        color: #e2dede;
+                        font-size: 22px;
+                        border: none;
+                        text-transform: capitalize;
+                        padding: 10px;
+                        border-radius: 6px;
+                        text-shadow: 0px 2px 3px #000;
+                        cursor: pointer;
+
+                        &:hover{
+                            color: #fff;
+                        }
                     }
                 }
             }
@@ -260,6 +266,77 @@ body{
     }
       
 }
+
+// myNeighbour
+.myneighbour-main{
+    margin-top: 30px;
+    .sec-search{
+        background-color: rgb(49, 53, 53);
+        padding: 20px;
+        margin-bottom: 20px;
+        .form{
+            form{
+                input{
+                    padding: 10px;
+                    margin: 0;
+                    border: none;
+                    border-radius: 3px;
+                }
+                input[type="text"]{
+                    width: 35%;
+                    font-size: 20px;
+                }
+                input[type="submit"]{
+                    width: 17%;
+                    font-size: 20px;
+                    text-transform: capitalize;
+                    background-color: aqua;
+                    cursor: pointer;
+                    &:hover{
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+    .sec-content{
+        width: 90%;
+        margin: auto;
+        .profile{
+            display: grid;
+            grid-template-columns: 40% 60%;
+            border: 1px solid rgb(90, 89, 89);
+
+            /* Google Maps */
+            #map {
+                height: 400px;
+                width: 100%;
+            }
+
+            .content{
+                border: 7px solid rgb(92, 139, 226);
+                padding: 3px;
+                h1{
+                    font-size: 18px;
+                    margin: 0;
+                    padding: 10px 0;
+                    font-weight: normal;
+                    span{
+                        font-size: 22px;
+                        color: rgb(5, 63, 5);
+                    }
+                }
+                h2{font-size:18px; margin: 0; padding: 0 0 10px 0;
+                font-weight: normal;
+                span{
+                    font-size: 22px;
+                    color: rgb(5, 63, 5);
+                }}
+            }
+        }
+    }
+}
+
 //  User authenticatin forms
 
 .main-new {

@@ -76,6 +76,6 @@ app.get('*', (req, res) => {
 
 //==============================
 // set the port
-app.listen(3001, () => {
+app.listen(3000, () => {
     console.log('server has started on 3000');
 });
