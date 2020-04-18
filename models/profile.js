@@ -4,18 +4,19 @@ let profileSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
     phone: Number,
+    postcode: String,
+    gender: String,
+    address: String,
     location: String,
     lat: Number,
     lng: Number,
-    gender: String,
-    address: String,
     author: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'user'
         },
         email: String,
-        username:String
+        username: String
     }
 })
 

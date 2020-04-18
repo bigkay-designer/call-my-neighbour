@@ -3,15 +3,15 @@ require('dotenv').config()
 let express = require('express'),
     bodyParser = require('body-parser'),
     request = require('request')
-    ejs = require('ejs'),
+ejs = require('ejs'),
     mongoose = require('mongoose'),
     passport = require('passport'),
     localStragety = require('passport-local'),
     passportLocalMongoose = require('passport-local-mongoose'),
     flash = require('connect-flash')
-    app = express();
+app = express();
 
-    // ======= routes and models=========
+// ======= routes and models=========
 let neighbour = require('./models/neighbour');
 let user = require('./models/user')
 
@@ -22,13 +22,13 @@ let profileRoute = require('./routes/profile')
 mongoose.connect('mongodb://localhost/neighbour', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify:false
+    useFindAndModify: false
 })
 
 app.use(flash())
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
-app.use('/public', express.static (__dirname + '/public'))
+app.use('/public', express.static(__dirname + '/public'))
 
 // passport authentication
 app.use(
@@ -54,9 +54,8 @@ app.use((req, res, next) => {
     res.locals.success = req.flash('success')
     next();
 });
-  
 
-app.use(neighbourRoute)
+
 app.use(authRoute)
 app.use(profileRoute)
 

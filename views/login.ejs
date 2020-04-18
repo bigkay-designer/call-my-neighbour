@@ -1,22 +1,24 @@
 <%- include ('partials/header')%> <%- include ('partials/nav')%>
 
 <main class="main-new">
-  <section class="form-sec">
-    <div class="form-title">
-      <h1>login</h1>
-    </div>
-    <form class="new-form" action="/login" method="POST">
-        <div class="data">
-            <label for="username">username</label>
-            <input type="text" name="username" required />
-            <label for="password">password</label>
-            <input type="password" name="password" id="">
-        </div>
-      <div class="new-btn">
-        <button type="submit">sign up</button>
+  <div class="container">
+    <section class="form-sec">
+      <div class="form-title">
+        <h1>login</h1>
       </div>
-    </form>
-  </section>
+      <form class="new-form" action="/login" method="POST">
+        <div class="data">
+          <label for="username">username</label>
+          <input type="text" name="username" required />
+          <label for="password">password</label>
+          <input type="password" name="password" id="">
+        </div>
+        <div class="new-btn">
+          <button type="submit">sign up</button>
+        </div>
+      </form>
+    </section>
+  </div>
 </main>
 
 <%- include ('partials/footer')%>

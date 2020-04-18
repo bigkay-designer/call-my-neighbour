@@ -1,9 +1,10 @@
 let log = console.log;
 let express = require('express'),
     router = express.Router()
-    var NodeGeocoder = require('node-geocoder');
+var NodeGeocoder = require('node-geocoder');
 
 let profile = require('../models/profile')
+let middleware = require('../middleware/index')
 
 
 var options = {
@@ -12,28 +13,65 @@ var options = {
     apiKey: process.env.GEOCODER_API_KEY,
     formatter: null
 };
-     
+
 var geocoder = NodeGeocoder(options);
-    
+
 
 router.get('/', (req, res) => {
-    res.render('./neighbour/landing')
+    profile.find({}, (err, profile) => {
+        if (err) {
+            log(err)
+        } else {
+            let slicedProfile = profile.slice(0, 2)
+            log(slicedProfile[0].firstName)
+            res.render('./neighbour/landing', { profile: profile })
+        }
+    })
 })
+//index page
+router.get('/index', middleware.isLoggedIn, (req, res) => {
+    // eval(require('locus'))
+    if (req.query.search) {
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        profile.find({ postcode: regex }, (err, profile) => {
+            if (err) {
+                log(err);
+            } else {
+                if (profile.length < 1) {
+                    req.flash('error', 'not found')
+                    res.redirect('/index')
+                } else {
+                    res.render('./neighbour/index', { profile: profile });
+                }
+            }
+        });
+    } else {
+        profile.find({}, (err, profile) => {
+            if (err) {
+                log(err);
+            } else {
+                res.render('./neighbour/index', { profile: profile });
+            }
+        });
+    }
+});
 
-router.get('/profile', (req, res) => {
+router.get('/profile', middleware.isLoggedIn, (req, res) => {
     res.render('profile')
 })
 
-router.post('/profile', (req, res) => {
-    let firstName = req.body.firstName
-    let lastName = req.body.lastName
-    let phone = req.body.phone
+router.post('/index', middleware.isLoggedIn, (req, res) => {
+    let firstName = req.body.firstName;
+    let lastName = req.body.lastName;
+    let phone = req.body.phone;
+    let postcode = req.body.postcode
+    let address = req.body.address;
     let gender = req.body.gender
-    let address = req.body.address
     let author = {
         id: req.user._id,
         username: req.user.username
-    }
+    };
+
     geocoder.geocode(req.body.location, function (err, data) {
         if (err || !data.length) {
             req.flash('error', 'Invalid address');
@@ -43,30 +81,33 @@ router.post('/profile', (req, res) => {
         var lat = data[0].latitude;
         var lng = data[0].longitude;
         var location = data[0].formattedAddress;
-        let newProfile = {firstName: firstName, lastName: lastName, phone: phone, gender: gender, address: address, author: author, location: location, lat: lat, lng: lng}
-        
-        profile.create(newProfile, (err, profile) => {
+        var newCampground = { firstName: firstName, lastName: lastName, phone: phone, address: address, postcode: postcode, gender: gender, author: author, location: location, lat: lat, lng: lng };
+        // Create a new campground and save to DB
+        profile.create(newCampground, function (err, newlyCreated) {
             if (err) {
-                log(err)
+                console.log(err);
             } else {
-                log(req.body)
-                res.redirect('/index')
+                //redirect back to campgrounds page
+                console.log(newlyCreated);
+                res.redirect("/index");
             }
-        })
-    })
-})
+        });
+    });
+});
 
 // my neighbour page
-router.get('/myNeighbour', (req, res) => {
-    profile.find({},(err, profile) => {
+router.get('/index/:id', (req, res) => {
+    profile.findById(req.params.id, (err, profile) => {
         if (err) {
             log(err)
         } else {
-            res.render('./neighbour/myNeighbour', {profile: profile})
+            res.render('./neighbour/myNeighbour', { profile: profile })
         }
     })
 })
 
-
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = router

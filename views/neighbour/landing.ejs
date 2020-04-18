@@ -1,19 +1,35 @@
-<%- include ('../partials/header')%> 
+<%- include ('../partials/header')%>
 <%- include ('../partials/nav')%>
 
-<main class="main-landing">
+<main class="test main-landing">
     <section class="show-case">
         <div class="content">
-            <h1>call your neighbor</h1>
+            <h1>call your neighbour</h1>
             <p>we watch out for you when you can't</p>
             <% if(!currentuser){ %>
-                <a href="/signup">join your neighbor</a>
+            <a href="/signup">join your neighbor</a>
             <% }else{ %>
-                <a href="/index">discover your neighbor</a>
+            <a href="/index">discover your neighbor</a>
             <% } %>
+        </div>
+        <div class="images">
+            <ul class="uls">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         </div>
     </section>
     <div class="container">
+        <div class="main-title">
+            <h1>neighborhood hub</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum tempore obcaecati blanditiis eaque
+                reprehenderit aspernatur, beatae corrupti culpa? Nisi similique consequuntur nesciunt dolorem ratione
+                eos id libero molestiae, quibusdam reiciendis inventore possimus harum doloremque ad assumenda aliquam
+                odit, ut hic!</p>
+        </div>
         <div class="slogan-div">
             <div class="slogan1 slogans">
                 <img src="../public/images/community.png" alt="">
@@ -32,27 +48,30 @@
             </div>
         </div>
 
-        <div class="testimonial-div">
-            <div class="title">
-                <h1>testimonials</h1>
+    </div>
+    <div class="testimonial-div">
+        <div class="img"></div>
+        <div class="title">
+            <h1>testimonials</h1>
+        </div>
+        <div class="slogan-bg">
+            <div class="slogan1 testimonials">
+                <img src="../public/images/p1.png" alt="">
+                <h1> name </h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, sit?</p>
             </div>
-            <div class="slogan-bg">
-                <div class="slogan1 testimonials">
-                    <img src="../public/images/p1.png" alt="">
-                    <h1>full name</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, sit?</p>
-                </div>
-                <div class="slogan2 testimonials">
-                    <img src="../public/images/p2.png" alt="">
-                    <h1>full name</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, sit?</p>
-                </div>
-                <div class="slogan3 testimonials">
-                    <img src="../public/images/p3.png" alt="">
-                    <h1>full name</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, sit?</p>
-                </div>
+            <div class="slogan2 testimonials">
+                <img src="../public/images/p2.png" alt="">
+                <h1>name </h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, sit?</p>
+            </div>
+            <div class="slogan3 testimonials">
+                <img src="../public/images/p3.png" alt="">
+                <h1>full name</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, sit?</p>
             </div>
         </div>
     </div>
 </main>
+
+<%- include ('../partials/footer')%>

@@ -1,31 +1,33 @@
 <%- include ('partials/header')%> <%- include ('partials/nav')%>
 
-<main class="main-new">
+<main class="main-profile">
   <section class="form-sec">
     <div class="form-title">
       <h1>sign up</h1>
     </div>
-    <form class="new-form" action="/profile" method="POST">
+    <form class="new-form" action="/index" method="POST">
       <div class="data">
         <label for="firstName">first name</label>
-        <input type="text" name="firstName"required>    
+        <input type="text" name="firstName" required>
         <label for="lastName">last name</label>
-        <input type="text" name="lastName"required>    
-        <label for="location">post code</label>
-        <input type="text" name="location" required />
+        <input type="text" name="lastName" required>
+        <label for="postcode">post code</label>
+        <input type="text" name="postcode" required>
         <label for="address">first line of your address</label>
-        <input type="text" name="address" id=""required>
+        <input type="text" name="address" id="" required>
+        <label for="location">city/town</label>
+        <input type="text" name="location" required />
         <label for="phone">mobile number</label>
         <input type="number" name="phone" required>
       </div>
-        <div class="gender">
-          <input type="radio" name="gender" value="male">Male
-          <input type="radio" name="gender" value="female">Female
-          <input type="radio" name="gender" value="other">Other
-        </div>
-        <div class="new-btn">
+      <div class="gender">
+        <input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="female">Female
+        <input type="radio" name="gender" value="other">Other
+      </div>
+      <div class="new-btn">
         <button type="submit">signup</button>
-        </div>
+      </div>
     </form>
   </section>
 </main>

@@ -1,41 +1,49 @@
-<%- include ('../partials/header') %> 
+<%- include ('../partials/header') %>
 
 <header class="nav-header">
-    <nav class="nav">
-        <div class="container">
-            <div class="logo">
-                <h1>logo</h1>
-            </div>
-            <div class="nav-bar">
-                <div class="nav-links">
-                    <a href="/">home</a>
-                    <a href="#">about</a>
-                    <a href="#">services</a>
-                </div>
-                <div class="nav-login">
-                    <% if(!currentuser){ %>
-                        <a href="/login">login</a>
-                        <a href="/signup" class="signup-border">sign up</a>
-                    <% }else{ %>
-                        <a href="#"><%= currentuser.username %></a>
-                        <a href="/logout">logout</a>
-                    <% } %>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <div class="message-container">
-        <% if(error && error.length > 0){ %>
-          <div class="message danger">
-            <%= error%>
+  <nav class="nav">
+    <div class="container">
+      <div class="logo">
+        <h1><a href="/">logo</a></h1>
+      </div>
+      <div class="nav-bar">
+        <div class="nav-login">
+          <div class="burger-menu">
+            <i class="fas fa-bars"></i>
           </div>
-        <% } %>
-      
-          <% if(success && success.length > 0){ %>
-            <div class="message success ">
-              <%= success%>
-            </div>
-          <% } %>
-            </div>
-        
+          <div class="login">
+            <% if(!currentuser){ %>
+            <a href="/login">login</a>
+            <a href="/signup" class="signup-border">sign up</a>
+            <% }else{ %>
+            <a href="#"><%= currentuser.username %></a>
+            <a href="/logout">logout</a>
+            <% } %>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="/">home</a>
+          <a href="#">about</a>
+          <a href="#">services</a>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+  <div class="message-container">
+    <% if(error && error.length > 0){ %>
+    <div class="message danger">
+      <%= error%>
+    </div>
+    <% } %>
+
+    <% if(success && success.length > 0){ %>
+    <div class="message success ">
+      <%= success%>
+    </div>
+    <% } %>
+  </div>
+
 </header>
+
+<%- include('../partials/footer')%>
