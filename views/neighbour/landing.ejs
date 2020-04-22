@@ -1,9 +1,9 @@
 <%- include ('../partials/header')%>
 <%- include ('../partials/nav')%>
 
-<main class="test main-landing">
+<main class="main-landing">
     <section class="show-case">
-        <div class="content">
+        <div class="zindex content">
             <h1>call your neighbour</h1>
             <p>we watch out for you when you can't</p>
             <% if(!currentuser){ %>
@@ -11,15 +11,6 @@
             <% }else{ %>
             <a href="/index">discover your neighbor</a>
             <% } %>
-        </div>
-        <div class="images">
-            <ul class="uls">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
         </div>
     </section>
     <div class="container">
@@ -32,17 +23,17 @@
         </div>
         <div class="slogan-div">
             <div class="slogan1 slogans">
-                <img src="../public/images/community.png" alt="">
+                <i class="fas fa-home"></i>
                 <h1>community</h1>
                 <p>The easiest way to keep up and help our neighborhood</p>
             </div>
             <div class="slogan2 slogans">
-                <img src="../public/images/security.png" alt="">
+                <i class="fas fa-user-shield"></i>
                 <h1>privacy</h1>
                 <p>Secure environment where all our users are verified</p>
             </div>
             <div class="slogan3 slogans">
-                <img src="../public/images/trust.png" alt="">
+                <i class="fas fa-users"></i>
                 <h1>unity</h1>
                 <p>A community built by you and you neighbors</p>
             </div>

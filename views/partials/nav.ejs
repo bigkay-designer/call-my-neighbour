@@ -1,32 +1,49 @@
-<%- include ('../partials/header') %>
 
 <header class="nav-header">
   <nav class="nav">
     <div class="container">
+
       <div class="logo">
-        <h1><a href="/">logo</a></h1>
+        <a href="/"><img src="../public/images/logo.png" width="60px" height="60px" alt=""></a>
       </div>
+      
       <div class="nav-bar">
+
         <div class="nav-login">
-          <div class="burger-menu">
-            <i class="fas fa-bars"></i>
-          </div>
           <div class="login">
             <% if(!currentuser){ %>
             <a href="/login">login</a>
             <a href="/signup" class="signup-border">sign up</a>
             <% }else{ %>
-            <a href="#"><%= currentuser.username %></a>
+            <a href="<%= currentuser._id %> /edit" class="user"><%= currentuser.username %></a>
             <a href="/logout">logout</a>
             <% } %>
+            <i class="fas fa-bars burger-menu"></i>
           </div>
         </div>
         <div class="nav-links">
-          <a href="/">home</a>
-          <a href="#">about</a>
-          <a href="#">services</a>
+          <h1 class="close"><i class="fas fa-times"></i></h1>
+          <a class="main-a" href="/">home</a>
+          <a class="main-a" href="#">about</a>
+          <a class="main-a" href="#">services</a>
+          <div class="nav-login">
+            <div class="login">
+              <% if(!currentuser){ %>
+              <a href="/login" class="login-border">login</a>
+              <a href="/signup" class="signup-border">sign up</a>
+              <% }else{ %>
+              <a href="/ <%=currentuser._Id %>  edit" class="user"><%= currentuser.username %></a>
+              <a href="/logout" class="logout">logout</a>
+              <% } %>
+            </div>
+          </div>
+          <div class="socials">
+            <a href="#"> <i class="fab fa-instagram-square"></i> </a>
+            <a href="#"><i class="fab fa-facebook-square"></i> </a>
+            <a href="#"><i class="fab fa-linkedin"></i> </a>
+            <a href="#"><i class="fab fa-twitter-square"></i> </a>
+          </div>
         </div>
-
       </div>
     </div>
   </nav>
@@ -45,5 +62,3 @@
   </div>
 
 </header>
-
-<%- include('../partials/footer')%>

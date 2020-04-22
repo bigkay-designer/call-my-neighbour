@@ -9,7 +9,8 @@ ejs = require('ejs'),
     localStragety = require('passport-local'),
     passportLocalMongoose = require('passport-local-mongoose'),
     flash = require('connect-flash')
-app = express();
+    methodOverride = require('method-override'),
+    app = express();
 
 // ======= routes and models=========
 let neighbour = require('./models/neighbour');
@@ -29,6 +30,7 @@ app.use(flash())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
 app.use('/public', express.static(__dirname + '/public'))
+app.use(methodOverride('_method'))
 
 // passport authentication
 app.use(

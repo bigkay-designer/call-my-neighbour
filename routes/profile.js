@@ -23,7 +23,6 @@ router.get('/', (req, res) => {
             log(err)
         } else {
             let slicedProfile = profile.slice(0, 2)
-            log(slicedProfile[0].firstName)
             res.render('./neighbour/landing', { profile: profile })
         }
     })
@@ -106,8 +105,39 @@ router.get('/index/:id', (req, res) => {
     })
 })
 
+// edit profile form
+router.get('/:id/edit', middleware.isLoggedIn, (req, res) => {
+    profile.find({}, (err, profile) => {
+        if (err) {
+            log(err)
+        } else {
+            res.render('./neighbour/edit', {profile:profile})
+        }
+    })
+    
+})
+
+// update edit route
+router.put('/:id', (req, res) => {
+    geocoder.geocode(req.body.location, function (err, data) {
+        if (err || !data.length) {
+            req.flash('error', 'Invalid address');
+            return res.redirect('back');
+        }
+        req.body.lat = data[0].latitude;
+        req.body.lng = data[0].longitude;
+        req.body.location = data[0].formattedAddress;
+        profile.findOneAndUpdate({ 'author.username': req.user.username }, req.body, (err, found) => {
+            if (err) {
+                log(err)
+            } else {
+                res.redirect('/index')
+            }
+        })
+    })
+})
+
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 };
-
 module.exports = router
