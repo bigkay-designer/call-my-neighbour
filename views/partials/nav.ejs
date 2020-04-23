@@ -15,7 +15,7 @@
             <a href="/login">login</a>
             <a href="/signup" class="signup-border">sign up</a>
             <% }else{ %>
-            <a href="<%= currentuser._id %> /edit" class="user"><%= currentuser.username %></a>
+            <a href="/<%= currentuser._id %> /edit" class="user"><%= currentuser.username %></a>
             <a href="/logout">logout</a>
             <% } %>
             <i class="fas fa-bars burger-menu"></i>
@@ -32,7 +32,7 @@
               <a href="/login" class="login-border">login</a>
               <a href="/signup" class="signup-border">sign up</a>
               <% }else{ %>
-              <a href="/ <%=currentuser._Id %>  edit" class="user"><%= currentuser.username %></a>
+              <a href="/<%=currentuser._Id %> /edit" class="user"><%= currentuser.username %></a>
               <a href="/logout" class="logout">logout</a>
               <% } %>
             </div>

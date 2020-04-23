@@ -32,7 +32,7 @@ router.get('/index', middleware.isLoggedIn, (req, res) => {
     // eval(require('locus'))
     if (req.query.search) {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-        profile.find({ postcode: regex }, (err, profile) => {
+        profile.find({ $or: [{ postcode: regex }, { firstName: regex }, {lastName: regex}]}, (err, profile) => {
             if (err) {
                 log(err);
             } else {
@@ -40,6 +40,7 @@ router.get('/index', middleware.isLoggedIn, (req, res) => {
                     req.flash('error', 'not found')
                     res.redirect('/index')
                 } else {
+                    log(profile)
                     res.render('./neighbour/index', { profile: profile });
                 }
             }

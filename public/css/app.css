@@ -8,8 +8,12 @@ body {
   overflow-x: hidden;
 }
 
+.nav-header .nav {
+  border-radius: 0 0 8px 8px;
+}
+
 .nav-header .nav .container {
-  background-color: ivory;
+  background-color: rgba(241, 239, 239, 0.6);
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 20% 80%;
@@ -78,7 +82,7 @@ body {
 
 .nav-header .nav .container .nav-bar .nav-links .login .user {
   font-size: 36px;
-  color: #4f6385;
+  color: #343c49;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -508,9 +512,8 @@ body {
 }
 
 .main-index .sec-content .profile .content {
-  background: #8a8aff;
-  background: -webkit-gradient(linear, left top, right top, from(#8a8aff), color-stop(0%, #020024), color-stop(96%, #00d4ff));
-  background: linear-gradient(90deg, #8a8aff 0%, #020024 0%, #00d4ff 96%);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#d9afd9), to(#97d9e1));
+  background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
   margin: 10px 0;
   padding: 10px;
 }
@@ -521,7 +524,7 @@ body {
   padding: 5px 0;
   font-weight: normal;
   text-transform: capitalize;
-  color: #fafafa;
+  color: #1d1313;
 }
 
 .main-index .sec-content .profile .content p span {
@@ -529,12 +532,12 @@ body {
 }
 
 .main-index .sec-content .profile .content p i {
-  color: #e4cfcf;
+  color: #18ce30;
 }
 
 .main-index .sec-content .profile .content a {
   text-transform: capitalize;
-  color: #eb9c9c;
+  color: #ec5f5f;
   font-weight: bold;
 }
 
@@ -582,6 +585,7 @@ body {
 
 .main-new .container .form-sec .form-title {
   margin-bottom: 10px;
+  color: #111214;
 }
 
 .main-new .container .form-sec .form-title h1 {
@@ -665,8 +669,9 @@ body {
 
 .main-profile {
   margin-top: 30px;
-  background: #7d8bd2;
-  background: radial-gradient(circle, #7d8bd2 0%, #54bcee 100%);
+  background: #22c1c3;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(67%, #22c1c3), to(#fdbb2d));
+  background: linear-gradient(0deg, #22c1c3 67%, #fdbb2d 100%);
   padding: 30px;
 }
 
@@ -676,6 +681,7 @@ body {
 
 .main-profile .form-title h1 {
   border-bottom: 1px solid #6e6969;
+  color: #b02ad1;
   padding-bottom: 15px;
   border-radius: 12px;
   width: 100%;
@@ -724,11 +730,12 @@ body {
 }
 
 .main-profile .form-sec .new-form .data label {
+  color: #2b0202;
+  font-weight: bold;
   margin: 8px 0;
   padding-left: 5px;
   font-size: 22px;
   text-transform: capitalize;
-  color: #2e2020;
 }
 
 .main-profile .form-sec .new-form .data label textarea {
@@ -790,12 +797,14 @@ body {
 
 .main-footer .container {
   background-color: #eff3f8;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .main-footer .container .dark-bg {
   background-color: #130d0d;
   color: #fff;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .main-footer .container .dark-bg .copyright {
@@ -836,16 +845,18 @@ body {
 }
 
 .main-footer .container .socials {
+  padding-bottom: 20px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
-  width: 25%;
+  width: 35%;
   margin: auto;
   text-align: center;
 }
 
 .main-footer .container .socials a {
+  padding: 0 7px;
   font-size: 28px;
 }
 
