@@ -512,8 +512,9 @@ body {
 }
 
 .main-index .sec-content .profile .content {
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#d9afd9), to(#97d9e1));
-  background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
+  background: #8a8aff;
+  background: -webkit-gradient(linear, left top, right top, from(#8a8aff), color-stop(0%, #020024), color-stop(96%, #00d4ff));
+  background: linear-gradient(90deg, #8a8aff 0%, #020024 0%, #00d4ff 96%);
   margin: 10px 0;
   padding: 10px;
 }
@@ -524,7 +525,7 @@ body {
   padding: 5px 0;
   font-weight: normal;
   text-transform: capitalize;
-  color: #1d1313;
+  color: #fafafa;
 }
 
 .main-index .sec-content .profile .content p span {
@@ -532,12 +533,12 @@ body {
 }
 
 .main-index .sec-content .profile .content p i {
-  color: #18ce30;
+  color: #e4cfcf;
 }
 
 .main-index .sec-content .profile .content a {
   text-transform: capitalize;
-  color: #ec5f5f;
+  color: #eb9c9c;
   font-weight: bold;
 }
 

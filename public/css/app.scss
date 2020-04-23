@@ -394,35 +394,37 @@ body {
       }
     }
   }
-  .sec-content {
+  .sec-content{
     width: 90%;
     margin: auto;
-    .profile {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      .content {
-        background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);        margin: 10px 0;
-        padding: 10px;
-        p {
-          font-size: 18px;
-          margin: 0;
-          padding: 5px 0;
-          font-weight: normal;
-          text-transform: capitalize;
-          color: rgb(29, 19, 19);
-          span {
-            font-size: 22px;
-          }
-          i {
-            color: rgb(24, 206, 48);
-          }
+    .profile{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        .content{
+            background: rgb(138,138,255);
+            background: linear-gradient(90deg, rgba(138,138,255,1) 0%, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 96%);                margin: 10px 0;
+            padding: 10px;
+            p{
+                font-size: 18px;
+                margin: 0;
+                padding: 5px 0;
+                font-weight: normal;
+                text-transform: capitalize;
+                color: rgb(250, 250, 250);
+                span{
+                    font-size: 22px;
+                }
+                i{
+                    color: rgb(228, 207, 207);
+                }
+            }
+            a{
+                text-transform: capitalize;
+                color: rgb(235, 156, 156);
+                font-weight: bold;
+            }
+            
         }
-        a {
-          text-transform: capitalize;
-          color: rgb(236, 95, 95);
-          font-weight: bold;
-        }
-      }
     }
   }
 }
