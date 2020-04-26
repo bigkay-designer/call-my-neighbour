@@ -11,8 +11,8 @@ body {
 .nav-header {
   .nav {
     border-radius: 0 0 8px 8px;
+    background-color: rgba(241, 239, 239, 0.6);
     .container {
-      background-color: rgba(241, 239, 239, 0.6);
       display: grid;
       grid-template-columns: 20% 80%;
       grid-template-rows: auto;
@@ -22,7 +22,7 @@ body {
         text-align: center;
       }
       .nav-bar {
-        .nav-links {
+        .small-sc-nav-links {
           display: none;
           z-index: 1;
           background-color: rgb(29, 24, 26);
@@ -97,31 +97,46 @@ body {
               text-align: center;
               text-decoration: none;
               color: #fff;
-              i {
-                color: rgb(203, 171, 207);
-                font-size: 24px;
-              }
+              font-size: 28px;
+                &:nth-child(1) {
+                  color: rgb(185, 105, 105);
+                }
+                &:nth-child(2) {
+                  color: rgb(104, 182, 104);
+                }
+                &:nth-child(3) {
+                  color: rgb(116, 116, 192);
+                }
+                &:nth-child(4) {
+                  color: rgb(102, 159, 167);
+                }
             }
           }
         }
         // ============
         .nav-login {
+            .nav-links{
+                display:none !important;
+            }
           .login {
             text-align: right;
-            margin-top: 7px;
+            margin: 7px 0px 0 0;
             .user {
-              font-size: 36px;
+              font-size: 32px;
               color: rgb(79, 99, 133);
               font-weight: bold;
+              margin: 0;
+              padding: 0;
             }
             a {
               font-size: 22px;
               text-transform: capitalize;
               text-decoration: none;
               color: grey;
-              padding: 0 15px;
+              padding: 0 25px 0 15px;
             }
             .signup-border {
+                margin-right:15px;
               background-color: rgb(79, 99, 133);
               font-weight: bold;
               padding: 7px;
@@ -130,7 +145,6 @@ body {
             }
             i {
               margin-right: 24px;
-              margin-left: 25px;
               font-size: 24px;
               cursor: pointer;
             }
@@ -249,7 +263,7 @@ body {
   .container {
     width: 90%;
     margin: auto;
-    background-color: rgb(248, 247, 247);
+    background-color: rgb(253, 255, 250);
     padding: 20px;
 
     .main-title {
@@ -319,9 +333,10 @@ body {
         text-align: center;
         text-transform: capitalize;
         color: rgb(17, 17, 17);
+        text-decoration: underline;
       }
     }
-    .slogan-bg {
+    .comment-bg {
       .testimonials {
         background-color: #fff;
         border-radius: 8px;
@@ -353,19 +368,24 @@ body {
 .main-index {
   margin-bottom: 100px;
   .index-showcase {
-    .title {
-      text-transform: capitalize;
-      text-align: center;
-      margin: 20px 0;
-      text-shadow: 0px 2px 3px rgb(243, 243, 223);
-    }
-    .sec-search {
       background: rgb(125, 139, 210);
       background: radial-gradient(
         circle,
         rgba(125, 139, 210, 1) 0%,
         rgba(15, 17, 18, 1) 100%
       );
+    .title {
+      text-transform: capitalize;
+      text-align: center;
+      margin: 20px 0 10px 0;
+      padding-top: 10px;
+      h1{
+          padding: 0 10px;
+          color: rgb(238, 237, 237);
+          font-size: 34px;
+      }
+    }
+    .sec-search {
       padding: 20px;
       margin-bottom: 20px;
       .form {
@@ -384,7 +404,7 @@ body {
             width: 25%;
             font-size: 20px;
             text-transform: capitalize;
-            background-color: aqua;
+            background-color: rgb(194, 194, 194);
             cursor: pointer;
             &:hover {
               font-weight: bold;
@@ -400,10 +420,10 @@ body {
     .profile{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
+        margin: 10px 0 0 0;
         .content{
-            background: rgb(138,138,255);
-            background: linear-gradient(90deg, rgba(138,138,255,1) 0%, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 96%);                margin: 10px 0;
-            padding: 10px;
+            background: rgb(68,76,99);
+            background: linear-gradient(90deg, rgb(84, 55, 90) 0%, rgba(74,101,176,1) 66%, rgb(58, 63, 83) 100%);            padding: 10px;
             p{
                 font-size: 18px;
                 margin: 0;
@@ -413,6 +433,7 @@ body {
                 color: rgb(250, 250, 250);
                 span{
                     font-size: 22px;
+                    color: rgb(237, 248, 250);
                 }
                 i{
                     color: rgb(228, 207, 207);
@@ -431,11 +452,11 @@ body {
 
 /// google map page
 .myneighbour-main {
-  .container {
     a {
       padding: 0 7px;
       font-size: 30px;
     }
+  .container {
     .sec-content {
       border-top-left-radius: 16px;
       border-top-right-radius: 16px;
@@ -553,97 +574,99 @@ body {
   }
 }
 // profile form
-
-.main-profile {
-  margin-top: 30px;
-  background: rgb(34,193,195);
-  background: linear-gradient(0deg, rgba(34,193,195,1) 67%, rgba(253,187,45,1) 100%);  padding: 30px;
-  .form-title {
-    margin-bottom: 10px;
+.edit-header{
+    padding-top: 20px;
     h1 {
-      border-bottom: 1px solid rgb(110, 105, 105);
-      color: rgb(176, 42, 209);
-      padding-bottom: 15px;
-      border-radius: 12px;
-      width: 100%;
-      margin: auto;
-      font-size: 26px;
-      letter-spacing: 0.5px;
-      text-transform: capitalize;
-      text-align: center;
-    }
-  }
+        border-bottom: 1px solid rgb(110, 105, 105);
+        color: #2b0202;
+        padding-bottom: 15px;
+        border-radius: 12px;
+        width: 70%;
+        margin: auto;
+        font-size: 28px;
+        letter-spacing: 0.5px;
+        text-transform: capitalize;
+        text-align: center;
+      }
+}
+.main-profile {
+    margin-top: 30px;
+    .container{
+        background: rgb(34,193,195);
+        background: linear-gradient(0deg, rgba(34,193,195,1) 67%, rgba(253,187,45,1) 100%);  padding: 30px;
 
-  .form-sec {
-    border: 1px solid rgb(124, 22, 22);
-    padding: 30px;
-    border-radius: 10px;
-    width: 85%;
-    margin: auto;
-    .new-form {
-      display: flex;
-      flex-direction: column;
-      justify-content: left;
-      align-items: left;
-      .data {
-        input {
-          padding-left: 10px;
-          display: block;
-          width: 99%;
-          height: 40px;
-          margin: 10px 0;
-          border: 1px solid grey;
-          border-radius: 5px;
-          text-transform: capitalize;
-          padding-left: 10px;
-          font-size: 18px;
-        }
-        label {
-          color: rgb(43, 2, 2);
-          font-weight: bold;
-          margin: 8px 0;
-          padding-left: 5px;
-          font-size: 22px;
-          text-transform: capitalize;
-          textarea {
-            border-radius: 5px;
-            border: 1px solid grey;
-            width: 96%;
+    
+      .form-sec {
+        border: 1px solid rgb(124, 22, 22);
+        padding: 30px;
+        border-radius: 10px;
+        width: 85%;
+        margin: auto;
+        .new-form {
+          display: flex;
+          flex-direction: column;
+          justify-content: left;
+          align-items: left;
+          .data {
+            input {
+              padding-left: 10px;
+              display: block;
+              width: 99%;
+              height: 40px;
+              margin: 10px 0;
+              border: 1px solid grey;
+              border-radius: 5px;
+              text-transform: capitalize;
+              padding-left: 10px;
+              font-size: 18px;
+            }
+            label {
+              color: rgb(43, 2, 2);
+              font-weight: bold;
+              margin: 8px 0;
+              padding-left: 5px;
+              font-size: 22px;
+              text-transform: capitalize;
+              textarea {
+                border-radius: 5px;
+                border: 1px solid grey;
+                width: 96%;
+                margin-top: 10px;
+                height: 160px;
+                text-transform: capitalize;
+                padding: 15px 15px;
+              }
+            }
+          }
+    
+          .gender {
             margin-top: 10px;
-            height: 160px;
-            text-transform: capitalize;
-            padding: 15px 15px;
+            input {
+              margin: 0 2px 30px 15px;
+            }
+          }
+    
+          .new-btn {
+            float: left;
+            width: 100%;
+            margin-top: 10px;
+            button {
+              padding: 20px 40px;
+              font-size: 24px;
+              letter-spacing: 1px;
+              text-transform: capitalize;
+              color: rgb(97, 6, 97);
+              border: 1px solid rgb(146, 66, 146);
+              cursor: pointer;
+              background-color: #fff;
+    
+              &:hover {
+                background-color: rgb(232, 192, 252);
+              }
+            }
           }
         }
       }
-
-      .gender {
-        margin-top: 10px;
-        input {
-          margin: 0 2px 30px 15px;
-        }
-      }
-
-      .new-btn {
-        float: left;
-        width: 100%;
-        margin-top: 10px;
-        button {
-          padding: 20px 40px;
-          font-size: 24px;
-          letter-spacing: 1px;
-          text-transform: capitalize;
-          color: rgb(97, 6, 97);
-          border: 1px solid rgb(146, 66, 146);
-          cursor: pointer;
-          background-color: #fff;
-
-          &:hover {
-            background-color: rgb(232, 192, 252);
-          }
-        }
-      }
-    }
   }
 }
 //edit page
@@ -673,7 +696,7 @@ body {
       padding-bottom: 10px;
       margin-bottom: 10px;
       .copyright {
-          padding-top: 10px;
+          padding: 10px 10px 0 10px;
           text-align: center;
           font-size: 22px;
           text-transform: capitalize;
@@ -743,5 +766,229 @@ body {
 //////////// media queries
 
 /// mobile device screen
-@media only screen and (max-width: 750px) {
+@media only screen and (min-width: 750px) {
+
+    .main-landing{
+        .show-case{
+            height: 560px !important;
+            .content{
+                h1{
+                    font-size:52px !important;
+                }
+                p{
+                    font-size: 42px !important;
+                }
+                a{
+                    font-size: 28px !important;
+                }
+            }
+        }
+        .container{
+            .main-title{
+                h1{
+                    font-size: 34px !important;
+                }
+                p{
+                    width: 85%;
+                    margin: auto;
+                    text-align: center;
+                }
+            }
+            .slogan-div{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr) !important;
+                grid-gap: 20px;
+                .slogans{
+                    text-align:center;
+                    i{
+                        font-size: 72px !important;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+        .testimonial-div{
+            .img{
+                height: 470px !important;
+            }
+            .comment-bg{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 20px;
+                width: 90%;
+                margin: auto;
+                .testimonials{
+                    width: 100% !important;
+                    p{
+                        width: 95% !important;
+                    }
+                }
+            }
+        }
+    }
+    .main-new{
+        .container{
+            width: 75%;
+            margin: auto;
+            max-width: 540px;
+            .form-sec{
+                width: 75% !important;
+                max-width: 75% !important;
+            }
+        }
+    }
+    .main-index{
+        .index-showcase{
+            display: grid;
+            grid-template-columns: 40% 60%;
+            padding: 10px;
+            
+            .title{
+                margin: 0!important;
+                h1{
+                    font-size: 32px;
+                    width: 60%;
+                    margin: auto;
+                }
+            }
+            .sec-search{
+                margin: 0!important ;
+                .form{
+                }
+            }
+        }
+        .sec-content{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-gap: 20px;
+            max-width: 80%;
+            .profile{
+                margin: 10px 0;
+                .content{
+                    width: 90%;
+                    margin: auto;
+                    height: 220px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    p{
+                        font-size: 24px !important;
+                        span{
+                            font-size: 28px !important;
+                        }
+                    }
+                    a{
+                        font-size: 22px;
+                    }
+                }
+            }
+        }
+    }
+    .myneighbour-main{
+        .container{
+            max-width: 75%;
+            margin: auto;
+        }
+        .sec-content{
+            
+        }
+    }
+    .main-profile{
+        .container{
+            max-width: 75% !important;
+            margin: auto
+        }
+        .form-sec{
+            max-width: 65% !important;
+        }
+    }
+    .main-footer{
+        .container{
+            .socials{
+                max-width: 15%;
+            }
+        }
+    }
+}
+@media only screen and (min-width: 845px){
+    .nav-header{
+        .nav{
+            .container{
+                .nav-bar{
+                    .nav-login{
+                        .burger-menu{
+                            display:none !important;
+                        }
+                    }
+                    .small-sc-nav-links{
+                        display: none !important;
+                    }
+                    .nav-login{
+                        display: grid;
+                        grid-template-columns: 60% 40%;
+                        justify-content: center;
+                        align-items: center;
+                        margin-top: 10px;
+                        .nav-links{
+                            display:inline-block !important;
+                            text-align: center;
+                            a{
+                                padding: 0 25px;
+                               font-size:22px;
+                               text-decoration: none;
+                               text-transform: capitalize;
+                               color: grey;
+                               &:hover{
+                                   text-decoration:underline;
+                               }
+                            }
+                        }
+                        .login{
+                            padding-right:20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1200px){
+    .nav-header{
+        .nav{
+            .container{
+                width: 70%;
+                margin:auto !important;
+            }
+        }
+
+    }
+    .main-landing{
+        .show-case{
+            height: 770px !important;
+        }
+        .main-title{
+            p{
+                max-width: 60% !important;
+            }
+        }
+        .testimonial-div{
+            .img{
+                height: 470px !important;
+            }
+            .comment-bg{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 20px;
+                width: 90%;
+                margin: auto;
+                .testimonials{
+                    width: 100% !important;
+                    p{
+                        width: 75% !important;
+                    }
+                }
+            }
+        }
+      }
 }

@@ -1,6 +1,6 @@
 let log = console.log;
 let burgerBar = $('.burger-menu');
-let navTags = $('.nav-links');
+let navTags = $('.small-sc-nav-links');
 let showCaseContent = $('.main-landing .show-case .zindex')
 let close = $('.close')
 log(close)
