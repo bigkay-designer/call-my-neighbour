@@ -1,0 +1,42 @@
+<%- include ('../partials/header') %> 
+<%- include ('../partials/nav') %> 
+
+<main class="contact-me-pg" id="main" >
+    <div class="contact-me-container">
+        <div class="overlay-contact"></div>
+        <div class="title">
+            <h1>Contact us</h1>
+            <p>please contact us here for any enquiries</p>
+        </div>
+
+        <div class="contact-me-wrapper">
+            <form>
+                <p class="label1 na">
+                    <label for="name">full name</label> <br>
+                    <input type="text" name="name" required>
+                </p>
+                <p class="label1 em">
+                    <label for="email">email address</label> <br>
+                    <input type="email" name="email" required>
+                </p>
+                <p class="label2 ph">
+                    <label for="phone">phone number</label> <br>
+                    <input type="phone" name="phone"  required>
+                </p>
+                <p class="label2 su">
+                    <label for="subject">subject</label> <br>
+                    <input type="text" name="subject" required>
+                </p>
+
+                <textarea class="tx"  name="message" placeholder="message" id="" cols="30" rows="10"></textarea>
+
+                <div class="spam-filter" data-netlify-recaptcha="true"></div>
+
+                <button class="bt" type="submit"> submit</button>
+            </form>
+        </div>
+
+    </div>
+</main>
+
+<%- include ('../partials/footer') %> 

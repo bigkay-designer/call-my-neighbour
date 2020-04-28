@@ -10,8 +10,7 @@ body {
 // nav bar
 .nav-header {
   .nav {
-    border-radius: 0 0 8px 8px;
-    background-color: rgba(241, 239, 239, 0.6);
+    // background-color: rgb(149, 245, 155);
     .container {
       display: grid;
       grid-template-columns: 20% 80%;
@@ -182,7 +181,6 @@ body {
 // landing page
 
 .main-landing {
-  margin-top: 20px;
   .show-case {
     width: 100%;
     height: 470px;
@@ -275,7 +273,26 @@ body {
         color: rgb(79, 99, 133);
       }
       p {
+        font-size: 18px;
         color: rgb(54, 54, 54);
+        margin-bottom: 10px;
+        text-align: center;
+        letter-spacing: 0.5px;
+        word-spacing:0.7px;
+        .bold{
+          font-size: 19px;
+          font-weight: bold;
+          color: rgb(78, 78, 78);
+        }
+      }
+      a{
+        color: #f7f7d9;
+        background-color: #7cc43a;
+        text-transform: capitalize;
+        text-decoration: none;
+        font-size: 20px;
+        padding: 5px 15px;
+        border-radius: 8px;
       }
     }
     .slogan-div {
@@ -358,6 +375,60 @@ body {
           font-size: 18px;
           color: rgb(78, 78, 78);
         }
+      }
+    }
+  }
+}
+
+//about me page
+.about-main{
+  .img{
+    background: url(../images/about-pg.png
+    );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 120px;
+    display: flex ;
+    margin-bottom: 10px;
+  }
+  .title{
+    background-color: #4f6385;
+    padding: 10px;
+    border-radius: 21px;
+    max-width: 40%;
+    margin: auto ;
+    h1{
+      color: #fff;
+      letter-spacing: 1px;
+      font-size: 38px;
+      text-align: center;
+    }
+  }
+  .container{
+    width: 85%;
+    margin: auto;
+    .sub-title{
+      margin: 20px 0;
+      color: rgb(197, 82, 82);
+      font-size: 32px;
+    }
+    .intro{
+      p{
+        margin-top: -10px;
+      }
+      h3{
+        margin: 20px 0 0 0;
+      }
+    }
+    .main-content{
+      background-color: rgba(243, 242, 242, 0.4);
+      padding: 10px;
+      border-radius: 8px;
+      margin: 20px 10px;
+      p{
+        margin-top: 13px;
+        font-size: 18px;
       }
     }
   }
@@ -447,6 +518,102 @@ body {
             
         }
     }
+  }
+}
+
+//contact us page
+.contact-me-pg{
+  padding: 20px 0;
+
+
+  .contact-me-container{
+      background: rgb(238,202,174);
+      background: radial-gradient(circle, rgba(238,202,174,1) 0%, rgb(121, 173, 233) 100%);
+      border-radius: 12px;
+
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px 0 !important;
+
+      .title{
+          text-align: center;
+          h1{
+              font-family: Georgia, 'Times New Roman', Times, serif;
+              font-size:40px;
+              font-weight: normal;
+              color: #2b0202;
+
+          }
+
+          p{
+              font-size: 16px;
+              font-style: italic;
+              margin-bottom:50px ;
+          }
+      }
+        .contact-me-wrapper{
+            display: grid ;
+            grid-template-columns: repeat(1, 1fr);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        form{
+            width: 65%;
+            p{
+              margin-bottom: 20px;
+            }
+            .label1, .label2{
+                
+                label{
+                
+                    font-size: 18px;
+                    font-weight: normal;
+                    text-transform: capitalize;
+                    font-style: italic;
+                    color: #2b0202;
+
+                }
+
+                input{
+                    width: 100%;
+                    padding: 15px;
+                    &::placeholder{
+                        text-transform: capitalize;
+                        font-size: 14px;
+                        opacity: 0.9;
+                        position: relative;
+                        bottom: 5px;
+                        right: 4px;
+                    }
+                }
+            }
+            
+            textarea{
+                display: block;
+                width: 300px;
+                max-width: 400px;
+                margin: 10px 0;
+                font-size: 16px;
+                padding: 15px;
+            }
+
+            button{
+                background-color: red;
+                color: white;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: 20px;
+                font-weight: bold;
+                text-transform: capitalize;
+                text-shadow: 0 2px 2px grey;
+                margin-bottom:60px;
+                text-decoration: none;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+        }
+      }
   }
 }
 
@@ -952,6 +1119,67 @@ body {
             }
         }
     }
+    .contact-me-pg{
+      width: 95% !important;
+      margin: 50px auto !important;
+      padding:0 !important;
+  }
+  .contact-me-wrapper{
+      margin: 0 auto !important;
+      padding: 0 !important;
+
+      form{
+          position: relative;
+          right: 30px;
+          width: 100% !important;
+          max-width: 600px !important;
+          display: grid;
+          grid-template-columns:1fr 1fr;
+          grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
+          grid-column-gap: 20px;
+          grid-template-areas: 
+          ". na em"
+          ". ph su"
+          ". tx tx"
+          ". sp sp"
+          ". bt bt";
+          margin: 0 auto !important;
+
+          .na{
+              grid-area: na;
+          }
+          .em{
+              grid-area: em;
+          }
+          .ph{
+              grid-area: ph;
+          }
+          .su{
+              grid-area: su;
+          }
+          
+          .bt{
+              position: relative;
+              bottom: 40px;
+              
+              grid-area: bt;
+          }
+          textarea{
+              width: 100% !important;
+              max-width: 628px !important;
+              height: 180px !important;
+              grid-area: tx;
+              grid-column-start: 2;
+              grid-column-end: -1;
+          }
+
+          .spam-filter{
+              position: relative;
+              bottom: 15px !important;
+              grid-area: sp;
+          }
+      }
+  }
 }
 @media only screen and (min-width: 1200px){
     .nav-header{
@@ -991,4 +1219,35 @@ body {
             }
         }
       }
+}
+
+//////////////////==================///////////////////
+
+@media only screen and(max-width:360px) /*smallest screen*/ {
+  .contact-me-pg{
+      .contact-me-wrapper{
+          display: grid !important;
+          grid-template-columns: repeat(2, 1fr) !important;
+          grid-template-areas: 
+          "f ." !important;
+          form{
+              grid-area: f !important;
+              margin: 0 !important;
+              position: relative;
+              right: 0 !important;
+              left: 0 !important;
+
+              .label1, .label2, input{
+                  width: 200px !important;
+                  margin: 0 auto !important;
+                  padding: 20px 0;
+              }
+              textarea{
+                  width: 290px !important;
+                  margin: 0 auto !important;
+                  margin-bottom: 10px !important;
+              }
+          }
+      }
+  }
 }

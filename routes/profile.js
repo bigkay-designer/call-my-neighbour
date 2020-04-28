@@ -95,6 +95,11 @@ router.post('/index', middleware.isLoggedIn, (req, res) => {
     });
 });
 
+//about me page
+router.get('/about', (req, res) => {
+    res.render('./neighbour/about')
+})
+
 // my neighbour page
 router.get('/index/:id', (req, res) => {
     profile.findById(req.params.id, (err, profile) => {
@@ -104,6 +109,11 @@ router.get('/index/:id', (req, res) => {
             res.render('./neighbour/myNeighbour', { profile: profile })
         }
     })
+})
+
+//contact us page
+router.get('/contact', (req, res) => {
+    res.render('./neighbour/contact')
 })
 
 // edit profile form
@@ -141,4 +151,5 @@ router.put('/:id', (req, res) => {
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 };
+
 module.exports = router
