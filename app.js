@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+let log = console.log
 let express = require('express'),
     bodyParser = require('body-parser'),
     request = require('request')
@@ -20,12 +20,16 @@ let neighbourRoute = require('./routes/neighbour')
 let authRoute = require('./routes/auth')
 let profileRoute = require('./routes/profile')
 
-mongoose.connect('mongodb://localhost/neighbour', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
+mongoose.connect('mongodb+srv://bkdesigner:alaah111@cluster0-5uuok.mongodb.net/test?retryWrites=true&w=majority', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+}).then(() => {
+  log('connected to the db')
+}).catch(err => {
+  log('ERROR: ', err.message)
 })
-
+    
 app.use(flash())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
@@ -71,6 +75,8 @@ app.get('*', (req, res) => {
 
 //==============================
 // set the port
-app.listen(3000, () => {
-    console.log('server has started on 3000');
+let host = '0.0.0.0'
+let port = process.env.PORT || 3000
+app.listen(port, host , () => {
+  console.log('server has started ' + port);
 });
