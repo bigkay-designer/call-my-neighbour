@@ -813,14 +813,19 @@ body {
             }
           }
     
+          .del-btn{
+            button{
+              background-color: rgb(233, 49, 49) !important;
+              color: blanchedalmond !important;
+            }
+          }
           .new-btn {
-            float: left;
-            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             margin-top: 10px;
             button {
-              padding: 20px 40px;
+              padding: 20px 20px;
               font-size: 24px;
-              letter-spacing: 1px;
               text-transform: capitalize;
               color: rgb(97, 6, 97);
               border: 1px solid rgb(146, 66, 146);
@@ -828,7 +833,7 @@ body {
               background-color: #fff;
     
               &:hover {
-                background-color: rgb(232, 192, 252);
+                font-weight: bold;
               }
             }
           }

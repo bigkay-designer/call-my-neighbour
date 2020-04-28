@@ -7,32 +7,39 @@
 <main class="main-profile">
   <div class="container">
     <section class="form-sec">
-      <form class="new-form" action="/<%= currentuser._id%>?_method=PUT" method="POST">
-        <% profile.forEach((profile)=>{ %>
-        <% if (currentuser && profile.author.id.equals(currentuser._id)){ %>
-        <div class="data">
-          <label for="firstName">first name</label>
-          <input type="text" name="firstName" value="<%= profile.firstName%>" required readonly>
-          <label for="lastName">last name</label>
-          <input type="text" name="lastName" value="<%= profile.lastName%>" readonly required>
-          <label for="postcode">post code</label>
-          <input type="text" name="postcode" value="<%= profile.postcode%>" required>
-          <label for="address">first line of your address</label>
-          <input type="text" name="address" id="" value="<%= profile.address%>" required>
-          <label for="location">city/town</label>
-          <input type="text" name="location" value="<%= profile.location%>" required />
-          <label for="phone">mobile number</label>
-          <input type="number" name="phone" value="<%= profile.phone%>" required>
-        </div>
-        <div class="gender">
-          <input type="radio" name="gender" value="male" readonly><%= profile.gender%>
-        </div>
-        <div class="new-btn">
-          <button type="submit">update</button>
-        </div>
-        <% } %>
-        <% }) %>
-      </form>
+      <% profile.forEach((profile)=>{ %>
+      <% if (currentuser && profile.author.id.equals(currentuser._id)){ %>
+        <form class="new-form" action="/<%= currentuser._id%>?_method=PUT" method="POST">
+          <div class="data">
+            <label for="firstName">first name</label>
+            <input type="text" name="firstName" value="<%= profile.firstName%>" required readonly>
+            <label for="lastName">last name</label>
+            <input type="text" name="lastName" value="<%= profile.lastName%>" readonly required>
+            <label for="postcode">post code</label>
+            <input type="text" name="postcode" value="<%= profile.postcode%>" required>
+            <label for="address">first line of your address</label>
+            <input type="text" name="address" id="" value="<%= profile.address%>" required>
+            <label for="location">city/town</label>
+            <input type="text" name="location" value="<%= profile.location%>" required />
+            <label for="phone">mobile number</label>
+            <input type="number" name="phone" value="<%= profile.phone%>" required>
+          </div>
+          <div class="gender">
+            <input type="radio" name="gender" value="male" readonly><%= profile.gender%>
+          </div>
+          <div class="new-btn">
+            <button type="submit">update</button>
+          </div>
+        </form>
+      <% } %>
+      <% if (currentuser && profile.author.id.equals(currentuser._id)){ %>
+        <form class="new-form" action="/<%= currentuser._id%>?_method=DELETE" method="POST">
+          <div class="new-btn del-btn">
+            <button type="submit">delete</button>
+          </div>
+        </form>
+      <% } %>
+      <% }) %>
     </section>
   </div>
 </main>

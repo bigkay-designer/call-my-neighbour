@@ -4,6 +4,7 @@ let express = require('express'),
 var NodeGeocoder = require('node-geocoder');
 
 let profile = require('../models/profile')
+let user = require('../models/user')
 let middleware = require('../middleware/index')
 
 
@@ -122,6 +123,7 @@ router.get('/:id/edit', middleware.isLoggedIn, (req, res) => {
         if (err) {
             log(err)
         } else {
+            log(profile)
             res.render('./neighbour/edit', {profile:profile})
         }
     })
@@ -143,6 +145,21 @@ router.put('/:id', (req, res) => {
                 log(err)
             } else {
                 res.redirect('/index')
+            }
+        })
+    })
+})
+router.delete('/:id', (req, res) => {
+    profile.findOneAndDelete({ 'author.username': req.user.username }, req.body, (err, deleted) => {
+        if (err) {
+            log(err)
+        } 
+        user.findByIdAndDelete(req.params.id, (err, deleted) => {
+            if (err) {
+                log(err)
+            } else {
+                req.flash('success', 'profile removed')
+                res.redirect('/')
             }
         })
     })

@@ -990,16 +990,22 @@ body {
   margin: 0 2px 30px 15px;
 }
 
+.main-profile .container .form-sec .new-form .del-btn button {
+  background-color: #e93131 !important;
+  color: blanchedalmond !important;
+}
+
 .main-profile .container .form-sec .new-form .new-btn {
-  float: left;
-  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
   margin-top: 10px;
 }
 
 .main-profile .container .form-sec .new-form .new-btn button {
-  padding: 20px 40px;
+  padding: 20px 20px;
   font-size: 24px;
-  letter-spacing: 1px;
   text-transform: capitalize;
   color: #610661;
   border: 1px solid #924292;
@@ -1008,7 +1014,7 @@ body {
 }
 
 .main-profile .container .form-sec .new-form .new-btn button:hover {
-  background-color: #e8c0fc;
+  font-weight: bold;
 }
 
 .edit-header {
