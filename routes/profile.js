@@ -123,7 +123,7 @@ router.get('/:id/edit', middleware.isLoggedIn, (req, res) => {
         if (err) {
             log(err)
         } else {
-            log(profile)
+            log(req.params.id)
             res.render('./neighbour/edit', {profile:profile})
         }
     })
@@ -140,10 +140,11 @@ router.put('/:id', (req, res) => {
         req.body.lat = data[0].latitude;
         req.body.lng = data[0].longitude;
         req.body.location = data[0].formattedAddress;
-        profile.findOneAndUpdate({ 'author.username': req.user.username }, req.body, (err, found) => {
+        profile.findOneAndUpdate({'author.username': req.user.username}, req.body, (err, found) => {
             if (err) {
                 log(err)
             } else {
+                log(found)
                 res.redirect('/index')
             }
         })
