@@ -676,10 +676,12 @@ body {
       padding: 15px 15px 15px 35px;
       font-size: 22px;
       .dark{
+       span{
         color: rgb(143, 229, 162) !important;
         font-weight: bold;
         letter-spacing: 0.5px;
         text-decoration: none !important;
+       }
       }
       p {
         margin-top: 10px;

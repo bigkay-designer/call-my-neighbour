@@ -825,7 +825,7 @@ body {
   font-size: 22px;
 }
 
-.myneighbour-main .container .sec-content .dark {
+.myneighbour-main .container .sec-content .dark span {
   color: #8fe5a2 !important;
   font-weight: bold;
   letter-spacing: 0.5px;
