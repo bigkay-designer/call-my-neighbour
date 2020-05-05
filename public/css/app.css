@@ -1304,7 +1304,6 @@ body {
   .contact-me-wrapper form {
     position: relative;
     right: 30px;
-    width: 100% !important;
     max-width: 600px !important;
     display: -ms-grid;
     display: grid;
@@ -1312,8 +1311,8 @@ body {
         grid-template-columns: 1fr 1fr;
     -ms-grid-rows: 1fr 1fr 2fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
-    grid-column-gap: 20px;
-        grid-template-areas: ". na em" ". ph su" ". tx tx" ". sp sp" ". bt bt";
+    grid-gap: 10px;
+        grid-template-areas: ". na em" ". ph su" ". tx tx" ". bt bt";
     margin: 0 auto !important;
   }
   .contact-me-wrapper form .na {
@@ -1337,12 +1336,13 @@ body {
     grid-area: su;
   }
   .contact-me-wrapper form .bt {
-    position: relative;
-    bottom: 40px;
-    -ms-grid-row: 5;
+    -ms-grid-row: 4;
     -ms-grid-column: 2;
     -ms-grid-column-span: 2;
     grid-area: bt;
+  }
+  .contact-me-wrapper form input {
+    width: auto !important;
   }
   .contact-me-wrapper form textarea {
     width: 100% !important;
@@ -1354,14 +1354,6 @@ body {
     grid-area: tx;
     grid-column-start: 2;
     grid-column-end: -1;
-  }
-  .contact-me-wrapper form .spam-filter {
-    position: relative;
-    bottom: 15px !important;
-    -ms-grid-row: 4;
-    -ms-grid-column: 2;
-    -ms-grid-column-span: 2;
-    grid-area: sp;
   }
 }
 

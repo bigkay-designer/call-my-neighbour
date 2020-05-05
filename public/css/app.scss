@@ -1142,17 +1142,15 @@ body {
       form{
           position: relative;
           right: 30px;
-          width: 100% !important;
           max-width: 600px !important;
           display: grid;
           grid-template-columns:1fr 1fr;
           grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
-          grid-column-gap: 20px;
+          grid-gap: 10px;
           grid-template-areas: 
           ". na em"
           ". ph su"
           ". tx tx"
-          ". sp sp"
           ". bt bt";
           margin: 0 auto !important;
 
@@ -1170,10 +1168,10 @@ body {
           }
           
           .bt{
-              position: relative;
-              bottom: 40px;
-              
               grid-area: bt;
+          }
+          input{
+            width: auto !important;
           }
           textarea{
               width: 100% !important;
@@ -1182,12 +1180,6 @@ body {
               grid-area: tx;
               grid-column-start: 2;
               grid-column-end: -1;
-          }
-
-          .spam-filter{
-              position: relative;
-              bottom: 15px !important;
-              grid-area: sp;
           }
       }
   }
