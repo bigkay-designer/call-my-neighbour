@@ -826,7 +826,9 @@ body {
 }
 
 .myneighbour-main .container .sec-content .dark {
-  color: #fff !important;
+  color: #8fe5a2 !important;
+  font-weight: bold;
+  letter-spacing: 0.5px;
 }
 
 .myneighbour-main .container .sec-content p {
