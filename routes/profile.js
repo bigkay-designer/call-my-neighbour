@@ -33,7 +33,7 @@ router.get('/index', middleware.isLoggedIn, (req, res) => {
     // eval(require('locus'))
     if (req.query.search) {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-        profile.find({ $or: [{ postcode: regex }, { firstName: regex }, {lastName: regex}]}, (err, profile) => {
+        profile.find({ $or: [{ postcode: regex }, { firstName: regex }, { lastName: regex }] }, (err, profile) => {
             if (err) {
                 log(err);
             } else {
@@ -65,7 +65,7 @@ router.post('/index', middleware.isLoggedIn, (req, res) => {
     let firstName = req.body.firstName;
     let lastName = req.body.lastName;
     let phone = req.body.phone;
-    let postcode = req.body.postcode
+    let city = req.body.city
     let address = req.body.address;
     let gender = req.body.gender
     let author = {
@@ -82,7 +82,7 @@ router.post('/index', middleware.isLoggedIn, (req, res) => {
         var lat = data[0].latitude;
         var lng = data[0].longitude;
         var location = data[0].formattedAddress;
-        var newCampground = { firstName: firstName, lastName: lastName, phone: phone, address: address, postcode: postcode, gender: gender, author: author, location: location, lat: lat, lng: lng };
+        var newCampground = { firstName: firstName, lastName: lastName, phone: phone, address: address, city: city, gender: gender, author: author, postcode: location, lat: lat, lng: lng };
         // Create a new campground and save to DB
         profile.create(newCampground, function (err, newlyCreated) {
             if (err) {
@@ -90,6 +90,7 @@ router.post('/index', middleware.isLoggedIn, (req, res) => {
             } else {
                 //redirect back to campgrounds page
                 console.log(newlyCreated);
+                log(req.body)
                 res.redirect("/index");
             }
         });
@@ -124,10 +125,10 @@ router.get('/:id/edit', middleware.isLoggedIn, (req, res) => {
             log(err)
         } else {
             log(req.params.id)
-            res.render('./neighbour/edit', {profile:profile})
+            res.render('./neighbour/edit', { profile: profile })
         }
     })
-    
+
 })
 
 // update edit route
@@ -140,7 +141,7 @@ router.put('/:id', (req, res) => {
         req.body.lat = data[0].latitude;
         req.body.lng = data[0].longitude;
         req.body.location = data[0].formattedAddress;
-        profile.findOneAndUpdate({'author.username': req.user.username}, req.body, (err, found) => {
+        profile.findOneAndUpdate({ 'author.username': req.user.username }, req.body, (err, found) => {
             if (err) {
                 log(err)
             } else {
@@ -154,7 +155,7 @@ router.delete('/:id', (req, res) => {
     profile.findOneAndDelete({ 'author.username': req.user.username }, req.body, (err, deleted) => {
         if (err) {
             log(err)
-        } 
+        }
         user.findByIdAndDelete(req.params.id, (err, deleted) => {
             if (err) {
                 log(err)

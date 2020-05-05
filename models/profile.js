@@ -4,10 +4,10 @@ let profileSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
     phone: Number,
-    postcode: String,
     gender: String,
     address: String,
-    location: String,
+    city: String,
+    postcode: String,
     lat: Number,
     lng: Number,
     author: {

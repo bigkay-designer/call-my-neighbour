@@ -273,6 +273,7 @@ body {
         color: rgb(79, 99, 133);
       }
       p {
+        padding: 0 0 20px 0;
         font-size: 18px;
         color: rgb(54, 54, 54);
         margin-bottom: 10px;
@@ -388,7 +389,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 120px;
+    height: 140px;
     display: flex ;
     margin-bottom: 10px;
   }
@@ -554,12 +555,10 @@ body {
         .contact-me-wrapper{
             display: grid ;
             grid-template-columns: repeat(1, 1fr);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+
         form{
-            width: 65%;
+            width: 70%;
+            margin-left: 40px;
             p{
               margin-bottom: 20px;
             }
@@ -591,11 +590,11 @@ body {
             
             textarea{
                 display: block;
-                width: 300px;
+                width: 290px;
                 max-width: 400px;
                 margin: 10px 0;
                 font-size: 16px;
-                padding: 15px;
+                padding: 7px 0 0 7px;
             }
 
             button{
@@ -640,8 +639,19 @@ body {
       font-size: 22px;
       p {
         margin-top: 10px;
+        text-transform: capitalize;
       }
     }
+  }
+}
+.map-content{
+  h3{
+    text-transform: capitalize;
+  }
+  p{
+    margin-top: 5px;
+    font-weight: bold;
+    color: rgb(34, 34, 34);
   }
 }
 /* Google Maps */
@@ -696,7 +706,6 @@ body {
             margin: 10px 0;
             border: 1px solid grey;
             border-radius: 5px;
-            text-transform: capitalize;
             padding-left: 10px;
             font-size: 18px;
           }
@@ -712,7 +721,6 @@ body {
               width: 96%;
               margin-top: 10px;
               height: 160px;
-              text-transform: capitalize;
               padding: 15px 15px;
             }
           }
@@ -783,7 +791,6 @@ body {
               margin: 10px 0;
               border: 1px solid grey;
               border-radius: 5px;
-              text-transform: capitalize;
               padding-left: 10px;
               font-size: 18px;
             }
@@ -800,7 +807,6 @@ body {
                 width: 96%;
                 margin-top: 10px;
                 height: 160px;
-                text-transform: capitalize;
                 padding: 15px 15px;
               }
             }

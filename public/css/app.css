@@ -358,6 +358,7 @@ body {
 }
 
 .main-landing .container .main-title p {
+  padding: 0 0 20px 0;
   font-size: 18px;
   color: #363636;
   margin-bottom: 10px;
@@ -493,7 +494,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 120px;
+  height: 140px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -676,23 +677,11 @@ body {
   display: grid;
   -ms-grid-columns: (1fr)[1];
       grid-template-columns: repeat(1, 1fr);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .contact-me-pg .contact-me-container .contact-me-wrapper form {
-  width: 65%;
+  width: 70%;
+  margin-left: 40px;
 }
 
 .contact-me-pg .contact-me-container .contact-me-wrapper form p {
@@ -750,11 +739,11 @@ body {
 
 .contact-me-pg .contact-me-container .contact-me-wrapper form textarea {
   display: block;
-  width: 300px;
+  width: 290px;
   max-width: 400px;
   margin: 10px 0;
   font-size: 16px;
-  padding: 15px;
+  padding: 7px 0 0 7px;
 }
 
 .contact-me-pg .contact-me-container .contact-me-wrapper form button {
@@ -791,6 +780,17 @@ body {
 
 .myneighbour-main .container .sec-content p {
   margin-top: 10px;
+  text-transform: capitalize;
+}
+
+.map-content h3 {
+  text-transform: capitalize;
+}
+
+.map-content p {
+  margin-top: 5px;
+  font-weight: bold;
+  color: #222222;
 }
 
 /* Google Maps */
@@ -854,7 +854,6 @@ body {
   margin: 10px 0;
   border: 1px solid grey;
   border-radius: 5px;
-  text-transform: capitalize;
   padding-left: 10px;
   font-size: 18px;
 }
@@ -873,7 +872,6 @@ body {
   width: 96%;
   margin-top: 10px;
   height: 160px;
-  text-transform: capitalize;
   padding: 15px 15px;
 }
 
@@ -958,7 +956,6 @@ body {
   margin: 10px 0;
   border: 1px solid grey;
   border-radius: 5px;
-  text-transform: capitalize;
   padding-left: 10px;
   font-size: 18px;
 }
@@ -978,7 +975,6 @@ body {
   width: 96%;
   margin-top: 10px;
   height: 160px;
-  text-transform: capitalize;
   padding: 15px 15px;
 }
 
