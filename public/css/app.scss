@@ -589,12 +589,10 @@ body {
           }
       }
         .contact-me-wrapper{
-            display: grid ;
-            grid-template-columns: repeat(1, 1fr);
-
-        form{
+          
+          form{
             width: 70%;
-            margin-left: 40px;
+            margin-left: 50px;
             p{
               margin-bottom: 20px;
             }
@@ -626,7 +624,7 @@ body {
             
             textarea{
                 display: block;
-                width: 290px;
+                width: auto;
                 max-width: 400px;
                 margin: 10px 0;
                 font-size: 16px;
@@ -1117,6 +1115,57 @@ body {
             }
         }
     }
+    // contact
+    .contact-me-pg{
+      width: 95% !important;
+      margin: 50px auto !important;
+      padding:0 !important;
+    .contact-me-container{
+      .contact-me-wrapper{
+          margin: 0 auto !important;
+          padding: 0 !important;
+          max-width: 1200px !important;
+
+          form{
+              display: grid;
+              grid-template-columns:repeat(2, 1fr) !important ;
+              grid-gap: 10px;
+              grid-template-areas: 
+              "ph su"
+              "na em"
+              "tx tx"
+              "bt bt";
+              margin: 0 auto !important;
+
+              .na{
+                  grid-area: na;
+              }
+              .em{
+                  grid-area: em;
+              }
+              .ph{
+                  grid-area: ph;
+              }
+              .su{
+                  grid-area: su;
+              }
+              
+              .bt{
+                  grid-area: bt;
+              }
+              input{
+                width: 90% !important;
+              }
+              textarea{
+                  width: 100% !important;
+                  max-width: 98% !important;
+                  height: 180px !important;
+                  grid-area: tx;
+              }
+          }
+      }
+    }
+  }
     .myneighbour-main{
         .container{
             max-width: 75%;
@@ -1184,59 +1233,6 @@ body {
             }
         }
     }
-    .contact-me-pg{
-      width: 95% !important;
-      margin: 50px auto !important;
-      padding:0 !important;
-  }
-  .contact-me-wrapper{
-      margin: 0 auto !important;
-      padding: 0 !important;
-
-      form{
-          position: relative;
-          right: 30px;
-          max-width: 600px !important;
-          display: grid;
-          grid-template-columns:1fr 1fr;
-          grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
-          grid-gap: 10px;
-          grid-template-areas: 
-          ". na em"
-          ". ph su"
-          ". tx tx"
-          ". bt bt";
-          margin: 0 auto !important;
-
-          .na{
-              grid-area: na;
-          }
-          .em{
-              grid-area: em;
-          }
-          .ph{
-              grid-area: ph;
-          }
-          .su{
-              grid-area: su;
-          }
-          
-          .bt{
-              grid-area: bt;
-          }
-          input{
-            width: auto !important;
-          }
-          textarea{
-              width: 100% !important;
-              max-width: 628px !important;
-              height: 180px !important;
-              grid-area: tx;
-              grid-column-start: 2;
-              grid-column-end: -1;
-          }
-      }
-  }
 }
 @media only screen and (min-width: 1200px){
     .nav-header{

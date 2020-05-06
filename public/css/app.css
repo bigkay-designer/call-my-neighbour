@@ -717,16 +717,9 @@ body {
   margin-bottom: 50px;
 }
 
-.contact-me-pg .contact-me-container .contact-me-wrapper {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[1];
-      grid-template-columns: repeat(1, 1fr);
-}
-
 .contact-me-pg .contact-me-container .contact-me-wrapper form {
   width: 70%;
-  margin-left: 40px;
+  margin-left: 50px;
 }
 
 .contact-me-pg .contact-me-container .contact-me-wrapper form p {
@@ -784,7 +777,7 @@ body {
 
 .contact-me-pg .contact-me-container .contact-me-wrapper form textarea {
   display: block;
-  width: 290px;
+  width: auto;
   max-width: 400px;
   margin: 10px 0;
   font-size: 16px;
@@ -1299,6 +1292,63 @@ body {
   .main-index .sec-content .profile .content a {
     font-size: 22px;
   }
+  .contact-me-pg {
+    width: 95% !important;
+    margin: 50px auto !important;
+    padding: 0 !important;
+  }
+  .contact-me-pg .contact-me-container .contact-me-wrapper {
+    margin: 0 auto !important;
+    padding: 0 !important;
+    max-width: 1200px !important;
+  }
+  .contact-me-pg .contact-me-container .contact-me-wrapper form {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2] !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+    grid-gap: 10px;
+        grid-template-areas: "ph su" "na em" "tx tx" "bt bt";
+    margin: 0 auto !important;
+  }
+  .contact-me-pg .contact-me-container .contact-me-wrapper form .na {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: na;
+  }
+  .contact-me-pg .contact-me-container .contact-me-wrapper form .em {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    grid-area: em;
+  }
+  .contact-me-pg .contact-me-container .contact-me-wrapper form .ph {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: ph;
+  }
+  .contact-me-pg .contact-me-container .contact-me-wrapper form .su {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: su;
+  }
+  .contact-me-pg .contact-me-container .contact-me-wrapper form .bt {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: bt;
+  }
+  .contact-me-pg .contact-me-container .contact-me-wrapper form input {
+    width: 90% !important;
+  }
+  .contact-me-pg .contact-me-container .contact-me-wrapper form textarea {
+    width: 100% !important;
+    max-width: 98% !important;
+    height: 180px !important;
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: tx;
+  }
   .myneighbour-main .container {
     max-width: 75%;
     margin: auto;
@@ -1351,69 +1401,6 @@ body {
   }
   .nav-header .nav .container .nav-bar .nav-login .login {
     padding-right: 20px;
-  }
-  .contact-me-pg {
-    width: 95% !important;
-    margin: 50px auto !important;
-    padding: 0 !important;
-  }
-  .contact-me-wrapper {
-    margin: 0 auto !important;
-    padding: 0 !important;
-  }
-  .contact-me-wrapper form {
-    position: relative;
-    right: 30px;
-    max-width: 600px !important;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-    -ms-grid-rows: 1fr 1fr 2fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
-    grid-gap: 10px;
-        grid-template-areas: ". na em" ". ph su" ". tx tx" ". bt bt";
-    margin: 0 auto !important;
-  }
-  .contact-me-wrapper form .na {
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
-    grid-area: na;
-  }
-  .contact-me-wrapper form .em {
-    -ms-grid-row: 1;
-    -ms-grid-column: 3;
-    grid-area: em;
-  }
-  .contact-me-wrapper form .ph {
-    -ms-grid-row: 2;
-    -ms-grid-column: 2;
-    grid-area: ph;
-  }
-  .contact-me-wrapper form .su {
-    -ms-grid-row: 2;
-    -ms-grid-column: 3;
-    grid-area: su;
-  }
-  .contact-me-wrapper form .bt {
-    -ms-grid-row: 4;
-    -ms-grid-column: 2;
-    -ms-grid-column-span: 2;
-    grid-area: bt;
-  }
-  .contact-me-wrapper form input {
-    width: auto !important;
-  }
-  .contact-me-wrapper form textarea {
-    width: 100% !important;
-    max-width: 628px !important;
-    height: 180px !important;
-    -ms-grid-row: 3;
-    -ms-grid-column: 2;
-    -ms-grid-column-span: 2;
-    grid-area: tx;
-    grid-column-start: 2;
-    grid-column-end: -1;
   }
 }
 
