@@ -13,7 +13,7 @@ body {
     // background-color: rgb(149, 245, 155);
     .container {
       display: grid;
-      grid-template-columns: 20% 80%;
+      grid-template-columns: 10% 90%;
       grid-template-rows: auto;
       padding: 7px 0;
 
@@ -419,13 +419,17 @@ body {
 
 //about me page
 .about-main{
+  background-color: #FFDEE9;
+  background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+    padding: 0px 0 100px 0;
+
   .img{
     background: url(../images/about-pg.png
     );
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 140px;
+    height: 190px;
     display: flex ;
     margin-bottom: 10px;
   }
@@ -443,29 +447,39 @@ body {
     }
   }
   .container{
+    
     width: 85%;
     margin: auto;
     .sub-title{
-      margin: 20px 0;
-      color: rgb(197, 82, 82);
-      font-size: 32px;
+      margin: 20px 0 40px 0;
+      color: rgb(50, 196, 31);
+      font-weight: bold;
+      font-size: 36px;
+      text-align: center;
+      text-transform: uppercase;
     }
     .intro{
       p{
         margin-top: -10px;
+        color: rgb(20, 20, 20);
+        font-size: 18px;
       }
       h3{
         margin: 20px 0 0 0;
+        font-size: 22px;
       }
     }
     .main-content{
       background-color: rgba(243, 242, 242, 0.4);
-      padding: 10px;
+      padding: 10px 20px;
       border-radius: 8px;
       margin: 20px 10px;
       p{
         margin-top: 13px;
         font-size: 18px;
+      }
+      :nth-child(odd){
+        color: rgb(25, 70, 83);
       }
     }
   }
@@ -609,11 +623,12 @@ body {
                 }
 
                 input{
+
+                  font-size: 16px;
                     width: 100%;
                     padding: 15px;
                     &::placeholder{
                         text-transform: capitalize;
-                        font-size: 14px;
                         opacity: 0.9;
                         position: relative;
                         bottom: 5px;
@@ -1131,8 +1146,8 @@ body {
               grid-template-columns:repeat(2, 1fr) !important ;
               grid-gap: 10px;
               grid-template-areas: 
-              "ph su"
               "na em"
+              "ph su"
               "tx tx"
               "bt bt";
               margin: 0 auto !important;
@@ -1207,7 +1222,7 @@ body {
                     }
                     .nav-login{
                         display: grid;
-                        grid-template-columns: 60% 40%;
+                        grid-template-columns: 70% 30%;
                         justify-content: center;
                         align-items: center;
                         margin-top: 10px;
@@ -1215,8 +1230,8 @@ body {
                             display:inline-block !important;
                             text-align: center;
                             a{
-                                padding: 0 25px;
-                               font-size:22px;
+                                padding: 0 15px;
+                               font-size:20px;
                                text-decoration: none;
                                text-transform: capitalize;
                                color: grey;
@@ -1238,7 +1253,7 @@ body {
     .nav-header{
         .nav{
             .container{
-                width: 70%;
+                width: 100%;
                 margin:auto !important;
             }
         }

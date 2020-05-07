@@ -70,7 +70,8 @@ router.post('/index', middleware.isLoggedIn, (req, res) => {
     let gender = req.body.gender
     let author = {
         id: req.user._id,
-        username: req.user.username
+        username: req.user.username,
+        email: req.user.email
     };
 
     geocoder.geocode(req.body.location, function (err, data) {
@@ -114,8 +115,14 @@ router.get('/index/:id', (req, res) => {
 })
 
 //contact us page
-router.get('/contact', (req, res) => {
-    res.render('./neighbour/contact')
+router.get('/contact', middleware.isLoggedIn, (req, res) => {
+    profile.find({}, (err, profile) => {
+        if (err) {
+            log(err)
+        } else {
+            res.render('./neighbour/contact', {profile:profile})
+        }
+    })
 })
 
 // edit profile form
