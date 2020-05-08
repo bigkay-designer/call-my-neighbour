@@ -128,6 +128,10 @@ router.get('/contact', (req, res) => {
     })
 })
 
+router.post('/contact', (req, res) => {
+    req.flash('success', 'Thanks for contacting us, we will contact you shortly')
+    res.redirect('/contact')
+})
 // edit profile form
 router.get('/:id/edit', middleware.isLoggedIn, (req, res) => {
     profile.find({}, (err, profile) => {

@@ -12,7 +12,7 @@
         <div class="contact-me-wrapper">
             <% profile.forEach(profile =>{ %>
                 <% if (currentuser && profile.author.id.equals(currentuser._id)) { %>
-                    <form action="/" method="GET">
+                    <form action="/" method="POST">
                         <p class="label1 na">
                             <label for="name">full name</label> <br>
                             <input type="text" name="name" value="<%= profile.firstName%> <%= profile.lastName%>" required>
@@ -39,7 +39,7 @@
                 <% } %>
             <% }) %> 
             <% if(!currentuser){ %>
-                <form action="/" method="GET">
+                <form action="/contact" method="POST">
                     <p class="label1 na">
                         <label for="name">full name</label> <br>
                         <input type="text" name="name"  required>
