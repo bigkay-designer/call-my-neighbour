@@ -125,19 +125,19 @@ body {
 }
 
 .nav-header .nav .container .nav-bar .small-sc-nav-links .socials a:nth-child(1) {
-  color: #b96969;
+  color: #d6249f;
 }
 
 .nav-header .nav .container .nav-bar .small-sc-nav-links .socials a:nth-child(2) {
-  color: #68b668;
+  color: #3535b8;
 }
 
 .nav-header .nav .container .nav-bar .small-sc-nav-links .socials a:nth-child(3) {
-  color: #7474c0;
+  color: #269426;
 }
 
 .nav-header .nav .container .nav-bar .small-sc-nav-links .socials a:nth-child(4) {
-  color: #669fa7;
+  color: #1577b8;
 }
 
 .nav-header .nav .container .nav-bar .nav-login .nav-links {
@@ -860,9 +860,12 @@ body {
   width: 100%;
 }
 
-.main-new .container {
+.main-new {
   background: #7d8bd2;
   background: radial-gradient(circle, #7d8bd2 0%, #54bcee 100%);
+}
+
+.main-new .container {
   padding: 30px;
   padding: 70px 30px 130px 30px;
 }
@@ -1047,6 +1050,31 @@ body {
   margin: 0 2px 30px 15px;
 }
 
+.main-profile .container .form-sec .new-form .declaration {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5% 95%;
+      grid-template-columns: 5% 95%;
+      grid-template-areas: "radio p";
+}
+
+.main-profile .container .form-sec .new-form .declaration p {
+  max-width: 250px;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: p;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+  text-shadow: 0px 1px 4px #000;
+}
+
+.main-profile .container .form-sec .new-form .declaration input {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: radio;
+}
+
 .main-profile .container .form-sec .new-form .del-btn button {
   background-color: #e93131 !important;
   color: blanchedalmond !important;
@@ -1158,19 +1186,19 @@ body {
 }
 
 .main-footer .container .socials a:nth-child(1) {
-  color: #a02727;
+  color: #d6249f;
 }
 
 .main-footer .container .socials a:nth-child(2) {
-  color: #269426;
-}
-
-.main-footer .container .socials a:nth-child(3) {
   color: #3535b8;
 }
 
+.main-footer .container .socials a:nth-child(3) {
+  color: #269426;
+}
+
 .main-footer .container .socials a:nth-child(4) {
-  color: #3c8e99;
+  color: #1577b8;
 }
 
 .main-footer .container .logo {

@@ -23,7 +23,6 @@ router.get('/', (req, res) => {
         if (err) {
             log(err)
         } else {
-            let slicedProfile = profile.slice(0, 2)
             res.render('./neighbour/landing', { profile: profile })
         }
     })
@@ -58,7 +57,11 @@ router.get('/index', middleware.isLoggedIn, (req, res) => {
 });
 
 router.get('/profile', middleware.isLoggedIn, (req, res) => {
-    res.render('profile')
+    if (req.user) {
+        res.redirect('/')
+    } else {
+        res.render('profile')
+    }
 })
 
 router.post('/index', middleware.isLoggedIn, (req, res) => {
@@ -115,7 +118,7 @@ router.get('/index/:id', (req, res) => {
 })
 
 //contact us page
-router.get('/contact', middleware.isLoggedIn, (req, res) => {
+router.get('/contact', (req, res) => {
     profile.find({}, (err, profile) => {
         if (err) {
             log(err)
