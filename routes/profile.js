@@ -57,11 +57,7 @@ router.get('/index', middleware.isLoggedIn, (req, res) => {
 });
 
 router.get('/profile', middleware.isLoggedIn, (req, res) => {
-    if (req.user) {
-        res.redirect('/')
-    } else {
         res.render('profile')
-    }
 })
 
 router.post('/index', middleware.isLoggedIn, (req, res) => {
@@ -129,8 +125,8 @@ router.get('/contact', (req, res) => {
 })
 
 router.post('/contact', (req, res) => {
-    req.flash('success', 'Thanks for contacting us, we will contact you shortly')
-    res.redirect('/contact')
+    req.flash('success', 'We appreciate you contacting us. One of our colleagues will get back in touch with you soon!')
+    res.redirect('/')
 })
 // edit profile form
 router.get('/:id/edit', middleware.isLoggedIn, (req, res) => {
