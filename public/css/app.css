@@ -1051,6 +1051,7 @@ body {
 }
 
 .main-profile .container .form-sec .new-form .declaration {
+  margin: 0 0px 20px 15px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 5% 95%;
@@ -1059,14 +1060,16 @@ body {
 }
 
 .main-profile .container .form-sec .new-form .declaration p {
-  max-width: 250px;
+  max-width: 280px;
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: p;
   font-weight: bold;
+  font-size: 18px;
   letter-spacing: 1px;
   color: #fff;
   text-shadow: 0px 1px 4px #000;
+  padding-left: 15px;
 }
 
 .main-profile .container .form-sec .new-form .declaration input {

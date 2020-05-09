@@ -40,23 +40,36 @@ router.get('/index', middleware.isLoggedIn, (req, res) => {
                     req.flash('error', 'not found')
                     res.redirect('/index')
                 } else {
-                    log(profile)
                     res.render('./neighbour/index', { profile: profile });
                 }
             }
         });
     } else {
-        profile.find({}, (err, profile) => {
+        profile.find({ 'author.id': req.user._id }, (err, editProfile) => {
             if (err) {
-                log(err);
+                log(err)
             } else {
-                res.render('./neighbour/index', { profile: profile });
+                if (editProfile == '') {
+                    req.flash('error', 'Please complete your profile')
+                    res.redirect('/profile')
+                }
+                else {
+                    profile.find({}, (err, profile) => {
+                        if (err) {
+                            log(err);
+                        } else {
+                            res.render('./neighbour/index', { profile: profile });
+                        }
+                    });
+                    
+                }
+    
             }
-        });
+        })
     }
 });
 
-router.get('/profile', middleware.isLoggedIn, (req, res) => {
+router.get('/profile', middleware.isLoggedIn, middleware.authorizedUser, (req, res) => {
         res.render('profile')
 })
 
@@ -130,12 +143,16 @@ router.post('/contact', (req, res) => {
 })
 // edit profile form
 router.get('/:id/edit', middleware.isLoggedIn, (req, res) => {
-    profile.find({}, (err, profile) => {
+    profile.find({ 'author.id': req.user._id }, (err, profile) => {
         if (err) {
             log(err)
         } else {
-            log(req.params.id)
-            res.render('./neighbour/edit', { profile: profile })
+            if (profile == '') {
+                res.render('profile')
+            }
+            else {
+                res.render('./neighbour/edit', {profile: profile})
+            }
         }
     })
 
@@ -155,7 +172,6 @@ router.put('/:id', (req, res) => {
             if (err) {
                 log(err)
             } else {
-                log(found)
                 res.redirect('/index')
             }
         })

@@ -878,17 +878,20 @@ body {
           }
           
           .declaration{
+            margin: 0 0px 20px 15px;
             display: grid;
             grid-template-columns: 5% 95%;
             grid-template-areas: 
             "radio p";
             p{
-              max-width: 250px;
+              max-width: 280px;
               grid-area: p;
               font-weight: bold;
+              font-size: 18px;
               letter-spacing: 1px;
               color: #fff;
               text-shadow: 0px 1px 4px #000;
+              padding-left: 15px;
             }
             input{
               grid-area: radio;

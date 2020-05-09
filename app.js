@@ -14,6 +14,7 @@ ejs = require('ejs'),
 
 // ======= routes and models=========
 let neighbour = require('./models/neighbour');
+let profile = require('./models/profile');
 let user = require('./models/user')
 
 let authRoute = require('./routes/auth')

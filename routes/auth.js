@@ -11,13 +11,14 @@ router.get('/signup', (req, res) => {
 })
 
 router.post('/signup', (req, res) => {
-    user.register(new user({email:req.body.email, username: req.body.username }), req.body.password, (err, user) => {
+    user.register(new user({email:req.body.email, username: req.body.username }), req.body.password, (err, users) => {
         if (err) {
-            log(err)
+            req.flash('error', 'A user with the given username is already registered')
+            return res.redirect('/signup')
         }
         passport.authenticate('local')(req, res, ()=> {
             req.flash('success', 'welcome ' + req.body.username)
-            log(user)
+            log(users)
             res.redirect('/profile')
         })
     })
@@ -30,7 +31,8 @@ router.get('/login', (req, res) => {
 
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/index',
-    failureRedirect : '/login'
+    failureRedirect : '/login',
+    failureFlash: 'Invalid username or passoword.'
 }), (req, res)=> {
     req.flash('success', 'welcome back ' + currentuser.username)
 })
