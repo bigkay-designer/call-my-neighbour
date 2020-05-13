@@ -10,12 +10,18 @@ ejs = require('ejs'),
     passportLocalMongoose = require('passport-local-mongoose'),
     flash = require('connect-flash')
     methodOverride = require('method-override'),
+    expressSanitizer = require('express-sanitizer'),
+    nodemailer = require('nodemailer'),
+    sgMail = require('@sendgrid/mail'),
     app = express();
 
 // ======= routes and models=========
 let neighbour = require('./models/neighbour');
 let profile = require('./models/profile');
 let user = require('./models/user')
+
+//sendgrid
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 let authRoute = require('./routes/auth')
 let profileRoute = require('./routes/profile')

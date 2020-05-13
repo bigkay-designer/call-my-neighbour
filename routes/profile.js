@@ -2,6 +2,8 @@ let log = console.log;
 let express = require('express'),
     router = express.Router()
 var NodeGeocoder = require('node-geocoder');
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 let profile = require('../models/profile')
 let user = require('../models/user')
@@ -137,10 +139,42 @@ router.get('/contact', (req, res) => {
     })
 })
 
-router.post('/contact', (req, res) => {
-    req.flash('success', 'We appreciate you contacting us. One of our colleagues will get back in touch with you soon!')
-    res.redirect('/')
-})
+router.post('/contact', async (req, res) => {
+
+    const output = `
+    <p>You have a new contact request from C.M.N</p>
+    <h3>contact details</h3>
+    <ul>
+        <li><h4>name: ${req.body.name}</h4></li>
+        <li><h4>email: ${req.body.email}</h4></li>
+        <li><h4>phone: ${req.body.phone}</h4></li>
+        <li><h4>subject: ${req.body.subject}</h4></li>
+    </ul>
+    <h2 style = "text-decoration: underline;">Message</h2>
+    <p>${req.body.message}</p>
+`;
+    let message = req.body.message;
+    const msg = {
+        from: 'bigkay478@gmail.com',
+        to: 'ibrahimkhalid478@gmail.com',
+        subject: 'C.M.N contact form',
+        text: message,
+        html: output
+    };
+    try {
+      await sgMail.send(msg);
+      req.flash('success', 'Thank you for your email, we will get back to you shortly.');
+      res.redirect('/contact');
+    } catch (error) {
+      console.error(error);
+      if (error.response) {
+        console.error(error.response.body)
+      }
+      req.flash('error', 'Sorry, something went wrong, please contact admin@website.com');
+      res.redirect('/');
+    }
+});
+
 // edit profile form
 router.get('/:id/edit', middleware.isLoggedIn, (req, res) => {
     profile.find({ 'author.id': req.user._id }, (err, profile) => {
@@ -198,3 +232,47 @@ function escapeRegex(text) {
 };
 
 module.exports = router
+// req.flash('success', 'We appreciate you contacting us. One of our colleagues will get back in touch with you soon!')
+    // res.redirect('/')
+
+
+//     const output = `
+//     <p>You have a new contact request from C.M.N</p>
+//     <h3>contact details</h3>
+//     <ul>
+//         <li>name: ${req.body.name}</li>
+//         <li>name: ${req.body.email}</li>
+//         <li>name: ${req.body.phone}</li>
+//         <li>name: ${req.body.subject}</li>
+//     </ul>
+//     <h2>Message</h2>
+//     <p>${req.body.message}</p>
+// `;
+
+// create reusable transporter object using the default SMTP transport
+// let transporter = nodemailer.createTransport({
+//   service: 'gmail',
+//   auth: {
+//     user: 'ibrahimkhalid478@gmail.com', // generated ethereal user
+//     pass: 'alaah111' // generated ethereal password
+//   }
+// });
+
+// send mail with defined transport object
+// let mailOptions = {
+//   from: '" C.M.N👻" <ibrahimkhalid478@gmail.com>', // sender address
+//   to: "bigkay478@gmail.com", // list of receivers
+//   subject: " C.M.M contact form ✔", // Subject line
+//   text: "Hello world?", // plain text body
+//   html: output // html body
+// }
+// transporter.sendMail(mailOptions, (err, info) => {
+//     if (err) {
+//         log(err)
+//     } else {
+//         log('email sent ' + info.response)
+//         log(info)
+//         req.flash('success', 'We appreciate you contacting us. One of our colleagues will get back in touch with you soon!')
+//         res.redirect('/')
+//     }
+// })
