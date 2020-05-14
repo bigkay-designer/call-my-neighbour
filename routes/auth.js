@@ -83,14 +83,14 @@ router.post('/forgot', function(req, res, next) {
         subject: 'Callmyneighbour Password Reset',
         text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
           'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-          'http://' + req.headers.host + '/reset/' + token + '\n\n' +
+          'https://callmyneighbour.site/reset/' + token + '\n\n' +
           'If you did not request this, please ignore this email and your password will remain unchanged.\n'
       };
         try {
         await sgMail.send(mailOptions);
         log('mail-sent')
         req.flash('success', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
-        res.redirect('/forgot');
+        res.redirect('/login');
         } catch (error) {
         console.error(error);
         if (error.response) {
