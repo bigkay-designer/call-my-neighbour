@@ -29,7 +29,8 @@ let profileRoute = require('./routes/profile')
 mongoose.connect('mongodb+srv://bkdesigner:alaah111@cluster0-5uuok.mongodb.net/test?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  useCreateIndex: true
 }).then(() => {
   log('connected to the db')
 }).catch(err => {
@@ -76,7 +77,7 @@ app.use(profileRoute)
 //============================================
 // redirect all wrong urls to here
 app.get('*', (req, res) => {
-    res.send('oops you came to the wrong page');
+    res.render('404');
 });
 
 //==============================

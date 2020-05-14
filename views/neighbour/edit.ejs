@@ -32,6 +32,7 @@
         </div>
       </form>
       <% } %>
+      <!-- change password button -->
       <!-- delete button -->
       <% if (currentuser && profile.author.id.equals(currentuser._id)){ %>
       <form class="new-form" action="/<%= currentuser._id%>?_method=DELETE" method="POST">
@@ -40,6 +41,7 @@
         </div>
       </form>
       <% } %>
+
       <% }) %>
     </section>
   </div>

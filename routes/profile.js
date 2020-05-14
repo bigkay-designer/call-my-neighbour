@@ -155,8 +155,8 @@ router.post('/contact', async (req, res) => {
 `;
     let message = req.body.message;
     const msg = {
-        from: 'bigkay478@gmail.com',
-        to: 'ibrahimkhalid478@gmail.com',
+        from: 'cmncontactform@gmail.com',
+        to: 'bigkay478@gmail.com',
         subject: 'C.M.N contact form',
         text: message,
         html: output
@@ -170,7 +170,7 @@ router.post('/contact', async (req, res) => {
       if (error.response) {
         console.error(error.response.body)
       }
-      req.flash('error', 'Sorry, something went wrong, please contact admin@website.com');
+      req.flash('error', 'Sorry, something went wrong, please contact cmncontactform@gmail.com');
       res.redirect('/');
     }
 });

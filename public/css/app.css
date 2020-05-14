@@ -1119,6 +1119,12 @@ body {
   text-transform: capitalize;
 }
 
+.main-reset-forgot {
+  background-color: #A9C9FF;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#A9C9FF), to(#FFBBEC));
+  background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
+}
+
 .main-footer {
   margin-top: 60px;
 }
