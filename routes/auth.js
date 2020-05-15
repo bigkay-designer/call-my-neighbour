@@ -147,7 +147,7 @@ router.post('/reset/:token', function (req, res) {
                 from: 'callmyneighbour@gmail.com',
                 subject: 'Your password has been changed',
                 text: 'Hello,\n\n' +
-                    'username: ' + req.username + 
+                    'username: ' + user.username +'\n\n' + 
                     'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
             };
             try {
