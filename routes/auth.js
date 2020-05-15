@@ -147,7 +147,8 @@ router.post('/reset/:token', function (req, res) {
                 from: 'callmyneighbour@gmail.com',
                 subject: 'Your password has been changed',
                 text: 'Hello,\n\n' +
-                    'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
+                    'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n\n' +
+                    'username: ' + req.username
             };
             try {
                 await sgMail.send(mailOptions);
