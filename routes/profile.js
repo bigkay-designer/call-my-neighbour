@@ -1,12 +1,14 @@
 let log = console.log;
 let express = require('express'),
-    router = express.Router()
+    router = express.Router(),
+    async = require('async')
 var NodeGeocoder = require('node-geocoder');
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 let profile = require('../models/profile')
 let user = require('../models/user')
+let newsletter = require('../models/newsletter')
 let middleware = require('../middleware/index')
 
 
@@ -97,9 +99,9 @@ router.post('/index', middleware.isLoggedIn, (req, res) => {
         var lat = data[0].latitude;
         var lng = data[0].longitude;
         var location = data[0].formattedAddress;
-        var newCampground = { firstName: firstName, lastName: lastName, phone: phone, address: address, city: city, gender: gender, author: author, postcode: location, lat: lat, lng: lng };
+        var newProfile = { firstName: firstName, lastName: lastName, phone: phone, address: address, city: city, gender: gender, author: author, postcode: location, lat: lat, lng: lng };
         // Create a new campground and save to DB
-        profile.create(newCampground, function (err, newlyCreated) {
+        profile.create(newProfile, function (err, newlyCreated) {
             if (err) {
                 console.log(err);
             } else {
@@ -227,52 +229,63 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+// ================ CopyRight=====================//
+router.get('/terms-of-service', (req, res) => {
+    res.render('./copyright/terms-of-service.ejs')
+})
+
+router.get('/privacy-policy', (req, res) => {
+    res.render('./copyright/privacy-policy')
+})
+
+router.get('/disclaimer', (req, res) => {
+    res.render('./copyright/disclaimer')
+})
+
+
+// newsletter
+
+router.post('/newsletter', async (req, res) => {
+
+    let newEmail = { email: req.body.newsletter }
+        newsletter.findOne({email:req.body.newsletter}, (err, found) => {
+            if (err || found) {
+                req.flash('error', 'Your email is registered with us already')
+                res.redirect('back')
+            } else {
+                newsletter.create(newEmail, async (err, newemail) => {
+                    if (err) {
+                        log(err)
+                    } else {
+                            var mailOptions = {
+                                to: newEmail,
+                                from: 'callmyneighbour@gmail.com',
+                                subject: 'callmyneighbour newsletter',
+                                text: 'Hello,\n\n' +
+                                    'Thanks for subscribing to our email list!! We will keep you up to date..\n'
+                            };
+                            try {
+                                await sgMail.send(mailOptions);
+                                log('mail-sent')
+                                req.flash('success', 'Thans for Subscrbing to our newsletter');
+                                res.redirect('back');
+                            } catch (error) {
+                                console.error(error);
+                                if (error.response) {
+                                    console.error(error.response.body)
+                                }
+                                req.flash('error', 'Sorry, something went wrong, please contact callmyneighbour@gmail.com');
+                                res.redirect('/');
+                            }
+                    }
+                })
+            }
+        })
+    
+})
+
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 };
 
 module.exports = router
-// req.flash('success', 'We appreciate you contacting us. One of our colleagues will get back in touch with you soon!')
-    // res.redirect('/')
-
-
-//     const output = `
-//     <p>You have a new contact request from C.M.N</p>
-//     <h3>contact details</h3>
-//     <ul>
-//         <li>name: ${req.body.name}</li>
-//         <li>name: ${req.body.email}</li>
-//         <li>name: ${req.body.phone}</li>
-//         <li>name: ${req.body.subject}</li>
-//     </ul>
-//     <h2>Message</h2>
-//     <p>${req.body.message}</p>
-// `;
-
-// create reusable transporter object using the default SMTP transport
-// let transporter = nodemailer.createTransport({
-//   service: 'gmail',
-//   auth: {
-//     user: 'ibrahimkhalid478@gmail.com', // generated ethereal user
-//     pass: 'alaah111' // generated ethereal password
-//   }
-// });
-
-// send mail with defined transport object
-// let mailOptions = {
-//   from: '" C.M.N👻" <ibrahimkhalid478@gmail.com>', // sender address
-//   to: "bigkay478@gmail.com", // list of receivers
-//   subject: " C.M.M contact form ✔", // Subject line
-//   text: "Hello world?", // plain text body
-//   html: output // html body
-// }
-// transporter.sendMail(mailOptions, (err, info) => {
-//     if (err) {
-//         log(err)
-//     } else {
-//         log('email sent ' + info.response)
-//         log(info)
-//         req.flash('success', 'We appreciate you contacting us. One of our colleagues will get back in touch with you soon!')
-//         res.redirect('/')
-//     }
-// })

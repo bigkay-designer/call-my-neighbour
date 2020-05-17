@@ -4,26 +4,43 @@
                     <p class="copyright">copyright ©2020 neighbourhood family</p>
                     <div class="nav">
                         <nav>
-                            <a href="/">home</a>
-                            <a href="/about">about us</a>
-                            <a href="/contact">contact us</a>
-                            <% if(currentuser){ %>
-                                <a href="/<%= currentuser._id%>/edit">edit profile</a>
-                                <a class="mian-a" href="/index">discover your neighbour</a>
-                           <% } %>  
+                            <div class="main-links">
+                                <ul>
+                                    <li><a href="/">home</a></li>
+                                    <li><a href="/about">about us</a></li>
+                                    <li><a href="/contact">contact us</a></li>
+                                    <% if(currentuser){ %>
+                                    <li><a href="/<%= currentuser._id%>/edit">edit profile</a></li>
+                                    <li><a class="mian-a" href="/index">discover your neighbour</a></li>  
+                                   <% } %>  
+                                </ul>
+                            </div>
+                            <div class="copyright-links">
+                                <a href="/privacy-policy">privacy policy</a>
+                                <a href="/terms-of-service">terms of service</a>
+                                <a href="/disclaimer">Disclaimer</a>
+                            </div>
                         </nav>
+                        <div class="contact">
+                            <div class="newsletter">
+                                <form action="/newsletter" method="POST">
+                                    <div class="btn">
+                                    <label for="newsletter">Newletter</label>
+                                    <input type="email" name="newsletter" id="" required>
+                                        <button type="submit">SUBSCRIBE</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="socials">
+                                <a href="https://www.instagram.com/" target="_blank"> <i class="fab fa-instagram-square"></i> </a>
+                                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i> </a>
+                                <a href="https://uk.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i> </a>
+                                <a href="https://twitter.com/explore" target="_blank"><i class="fab fa-twitter-square"></i> </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="logo">
-                    <a href="/"><img src="../public/images/logo.png" width="60px" height="60px" alt=""></a>
-                </div>
-                <h1 class="contactus">contact with us</h1>
-                <div class="socials">
-                    <a href="https://www.instagram.com/" target="_blank"> <i class="fab fa-instagram-square"></i> </a>
-                    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i> </a>
-                    <a href="https://uk.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i> </a>
-                    <a href="https://twitter.com/explore" target="_blank"><i class="fab fa-twitter-square"></i> </a>
-                </div>
+                <!-- =================================== -->
 
             </div>
         </footer>
