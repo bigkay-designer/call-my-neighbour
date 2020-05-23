@@ -36,14 +36,14 @@ router.get('/login', (req, res) => {
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/index',
     failureRedirect : '/login',
-    failureFlash: 'Invalid username or passoword.'
+    failureFlash: 'Invalid username or password.'
 }), (req, res)=> {
     req.flash('success', 'welcome back ' + currentuser.username)
 })
 
 router.get('/logout', (req, res) => {
     req.logOut()
-    req.flash('success', 'successfuly logged out')
+    req.flash('success', 'successfully logged out')
     res.redirect('/')
 })
 
@@ -88,7 +88,7 @@ router.post('/forgot', function(req, res, next) {
       };
         try {
         await sgMail.send(mailOptions);
-        log('mail-sent')
+        log('password reset link mail-sent')
         req.flash('success', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
         res.redirect('/login');
         } catch (error) {
@@ -152,7 +152,7 @@ router.post('/reset/:token', function (req, res) {
             };
             try {
                 await sgMail.send(mailOptions);
-                log('mail-sent')
+                log(' password reset updated mail-sent')
                 req.flash('success', 'Success! Your password has been changed.');
                 res.redirect('/index');
             } catch (error) {

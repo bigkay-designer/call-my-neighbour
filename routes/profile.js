@@ -82,6 +82,7 @@ router.post('/index', middleware.isLoggedIn, (req, res) => {
     let lastName = req.body.lastName;
     let phone = req.body.phone;
     let city = req.body.city
+    let county = req.body.county;
     let address = req.body.address;
     let gender = req.body.gender
     let author = {
@@ -99,13 +100,13 @@ router.post('/index', middleware.isLoggedIn, (req, res) => {
         var lat = data[0].latitude;
         var lng = data[0].longitude;
         var location = data[0].formattedAddress;
-        var newProfile = { firstName: firstName, lastName: lastName, phone: phone, address: address, city: city, gender: gender, author: author, postcode: location, lat: lat, lng: lng };
-        // Create a new campground and save to DB
+        var newProfile = { firstName: firstName, lastName: lastName, phone: phone, address: address, city: city, county: county, gender: gender, author: author, postcode: location, lat: lat, lng: lng };
+        // Create a new profile and save to DB
         profile.create(newProfile, function (err, newlyCreated) {
             if (err) {
                 console.log(err);
             } else {
-                //redirect back to campgrounds page
+                //redirect back to profile page
                 console.log(newlyCreated);
                 log(req.body)
                 res.redirect("/index");
@@ -247,18 +248,18 @@ router.get('/disclaimer', (req, res) => {
 
 router.post('/newsletter', async (req, res) => {
 
-    let newEmail = { email: req.body.newsletter }
+    let emailForm = { email: req.body.newsletter }
         newsletter.findOne({email:req.body.newsletter}, (err, found) => {
             if (err || found) {
                 req.flash('error', 'Your email is registered with us already')
                 res.redirect('back')
             } else {
-                newsletter.create(newEmail, async (err, newemail) => {
+                newsletter.create(emailForm, async (err, newEmail) => {
                     if (err) {
                         log(err)
                     } else {
                             var mailOptions = {
-                                to: newEmail,
+                                to: emailForm,
                                 from: 'callmyneighbour@gmail.com',
                                 subject: 'callmyneighbour newsletter',
                                 text: 'Hello,\n\n' +
@@ -267,7 +268,7 @@ router.post('/newsletter', async (req, res) => {
                             try {
                                 await sgMail.send(mailOptions);
                                 log('mail-sent')
-                                req.flash('success', 'Thans for Subscrbing to our newsletter');
+                                req.flash('success', 'Thanks for Subscribing to our newsletter');
                                 res.redirect('back');
                             } catch (error) {
                                 console.error(error);

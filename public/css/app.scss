@@ -719,7 +719,7 @@ body {
   width: 100%;
 }
 
-//  User authenticatin forms
+//  User authentication forms
 
 .main-new {
   background: rgb(125, 139, 210);
@@ -884,13 +884,11 @@ body {
             grid-template-areas: 
             "radio p";
             p{
-              max-width: 280px;
               grid-area: p;
               font-weight: bold;
               font-size: 18px;
               letter-spacing: 1px;
               color: #fff;
-              text-shadow: 0px 1px 4px #000;
               padding-left: 15px;
             }
             input{
@@ -1358,8 +1356,7 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
             }
             .sec-search{
                 margin: 0!important ;
-                .form{
-                }
+               
             }
         }
         .sec-content{
@@ -1447,9 +1444,9 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
             max-width: 75%;
             margin: auto;
         }
-        .sec-content{
+        // .sec-content{
             
-        }
+        // }
     }
     // profile page
     .main-profile{
@@ -1467,11 +1464,11 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
       margin: auto;
     }
     // footer
-    .main-footer{
-        .container{
+    // .main-footer{
+    //     // .container{
  
-        }
-    }
+    //     // }
+    // }
 }
 @media only screen and (min-width: 845px){
     .nav-header{
@@ -1571,7 +1568,6 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
                         display: block;
                         font-size: 18px;
                         padding: 10px;
-                        border: none;
                         border-radius: 0px !important;
                       }
                       button{
@@ -1610,9 +1606,9 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
 
     }
     .main-landing{
-        .show-case{
-            // height: 770px !important;
-        }
+        // .show-case{
+        //     // height: 770px !important;
+        // }
         .main-title{
             p{
                 max-width: 60% !important;
@@ -1644,10 +1640,10 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
           .contact{
             max-width: 75% !important;
             margin: auto;
-            .newsletter{
-                form{
-              }
-            }
+            // .newsletter{
+            //   //   form{
+            //   // }
+            // }
           }
         }
       }
