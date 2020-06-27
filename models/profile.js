@@ -7,6 +7,7 @@ let profileSchema = new mongoose.Schema({
     gender: String,
     address: String,
     city: String,
+    county: String,
     postcode: String,
     lat: Number,
     lng: Number,

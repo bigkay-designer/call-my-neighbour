@@ -1,0 +1,23 @@
+<%- include ('partials/header')%> <%- include ('partials/nav')%>
+
+<main class="main-new main-reset-forgot">
+  <div class="container">
+
+    <section class="form-sec">
+      <div class="form-title">
+        <h1>Forgot password</h1>
+      </div>
+      <form class="new-form" action="/forgot" method="POST">
+        <div class="data">
+          <label for="email">email</label>
+          <input type="email" name="email" required />
+        </div>
+        <div class="new-btn">
+          <button type="submit">Reset password</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</main>
+
+<%- include ('partials/footer')%>

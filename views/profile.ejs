@@ -18,13 +18,19 @@
           <input type="text" name="address" id="" required>
           <label for="city">city/town</label>
           <input type="text" name="city" required />
+          <label for="county">county/state</label>
+          <input type="text" name="county" id="county" required />
           <label for="phone">mobile number</label>
           <input type="number" name="phone" required>
         </div>
         <div class="gender">
-          <input type="radio" name="gender" value="male">Male
-          <input type="radio" name="gender" value="female">Female
-          <input type="radio" name="gender" value="other">Other
+          <input type="radio" name="gender" value="male" required>Male
+          <input type="radio" name="gender" value="female" required>Female
+          <input type="radio" name="gender" value="other" required>Other
+        </div>
+        <div class="declaration">
+            <p> I agree to the <a href="/terms-of-service">Terms and Conditions</a></p>
+            <input type="checkbox" name="agree" required>
         </div>
         <div class="new-btn">
           <button type="submit">signup</button>

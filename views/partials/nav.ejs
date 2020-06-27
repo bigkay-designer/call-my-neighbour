@@ -12,6 +12,9 @@
           <div class="nav-links">
             <a class="main-a" href="/">home</a>
             <a class="main-a" href="/about">about</a>
+            <% if (currentuser){ %>
+              <a class="mian-a" href="/index">discover your neighbour</a>
+            <% } %> 
             <a class="main-a" href="/contact">contact</a>
           </div>
           <div class="login">
@@ -29,6 +32,9 @@
           <h1 class="close"><i class="fas fa-times"></i></h1>
           <a class="main-a" href="/">home</a>
           <a class="main-a" href="/about">about us</a>
+          <% if(currentuser){ %>
+            <a class="main-a" href="/index">dicover your neighbour</a>
+          <% } %> 
           <a class="main-a" href="/contact">contact us</a>
           <div class="nav-login">
             <div class="login">
@@ -42,10 +48,10 @@
             </div>
           </div>
           <div class="socials">
-            <a href="#"> <i class="fab fa-instagram-square"></i> </a>
-            <a href="#"><i class="fab fa-facebook-square"></i> </a>
-            <a href="#"><i class="fab fa-linkedin"></i> </a>
-            <a href="#"><i class="fab fa-twitter-square"></i> </a>
+            <a href="https://www.instagram.com/" target="_blank"> <i class="fab fa-instagram-square"></i> </a>
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i> </a>
+            <a href="https://uk.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i> </a>
+            <a href="https://twitter.com/explore" target="_blank"><i class="fab fa-twitter-square"></i> </a>
           </div>
         </div>
       </div>

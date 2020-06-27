@@ -21,6 +21,8 @@
           <input type="text" name="address" id="" value="<%= profile.address%>" required>
           <label for="city">city/town</label>
           <input type="text" name="city" value="<%= profile.city%>" required />
+          <label for="county">county/state</label>
+          <input type="text" name="county" id="county" value="<%= profile.county%>" required />
           <label for="phone">mobile number</label>
           <input type="number" name="phone" value="<%= profile.phone%>" required>
         </div>
@@ -32,6 +34,8 @@
         </div>
       </form>
       <% } %>
+      <!-- change password button -->
+      <!-- delete button -->
       <% if (currentuser && profile.author.id.equals(currentuser._id)){ %>
       <form class="new-form" action="/<%= currentuser._id%>?_method=DELETE" method="POST">
         <div class="new-btn del-btn">
@@ -39,6 +43,7 @@
         </div>
       </form>
       <% } %>
+
       <% }) %>
     </section>
   </div>

@@ -1,4 +1,5 @@
 <%- include ('../partials/header') %>
+
 <main class="myneighbour-main">
     <a href="/index"><i class="fas fa-arrow-left"></i></a>
     <div class="container">
@@ -6,7 +7,7 @@
             <div class="profile">
                 <div class="content">
                     <p> <i class="fas fa-user"></i> <span><%= profile.firstName %> <%= profile.lastName %></span></p>
-                    <p> <i class="fas fa-phone-alt"></i> <span><%= profile.phone%></span></p>
+                    <p class="dark"> <i class="fas fa-phone-alt"></i> <span><%= profile.phone%></span></p>
                     <p> <i class="fas fa-map-marker-alt"></i> <span><%= profile.city%></span></p>
                 </div>
             </div>
@@ -28,8 +29,8 @@
         var contentString = `
         <div class = "map-content"> 
             <h3><%= profile.firstName%></h3>
-            <p> <%= profile.postcode%> </p>
-            <p> <%= profile.address%> </p>
+            <p> <%= profile.city%> </p>
+            <p style="text-transform : capitalize"> <%= profile.county%> </p>
             </div>
       `
         var infowindow = new google.maps.InfoWindow({

@@ -10,20 +10,27 @@ ejs = require('ejs'),
     passportLocalMongoose = require('passport-local-mongoose'),
     flash = require('connect-flash')
     methodOverride = require('method-override'),
+    expressSanitizer = require('express-sanitizer'),
+    nodemailer = require('nodemailer'),
+    sgMail = require('@sendgrid/mail'),
     app = express();
 
 // ======= routes and models=========
 let neighbour = require('./models/neighbour');
+let profile = require('./models/profile');
 let user = require('./models/user')
 
-let neighbourRoute = require('./routes/neighbour')
+//sendgrid
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
 let authRoute = require('./routes/auth')
 let profileRoute = require('./routes/profile')
 
 mongoose.connect('mongodb+srv://bkdesigner:alaah111@cluster0-5uuok.mongodb.net/test?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  useCreateIndex: true
 }).then(() => {
   log('connected to the db')
 }).catch(err => {
@@ -70,7 +77,7 @@ app.use(profileRoute)
 //============================================
 // redirect all wrong urls to here
 app.get('*', (req, res) => {
-    res.send('oops you came to the wrong page');
+    res.render('404');
 });
 
 //==============================
