@@ -535,9 +535,7 @@ body {
 }
 
 .about-main {
-  background-color: #FFDEE9;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#FFDEE9), to(#B5FFFC));
-  background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+  background-color: #e0e2db;
   padding: 0px 0 100px 0;
 }
 
@@ -709,8 +707,8 @@ body {
 }
 
 .contact-me-pg .contact-me-container {
-  background: #eecaae;
-  background: radial-gradient(circle, #eecaae 0%, #79ade9 100%);
+  background: #7d8bd2;
+  background: radial-gradient(circle, #7d8bd2 0%, #54bcee 100%);
   border-radius: 12px;
   width: 100%;
   margin: 0 auto;
@@ -725,13 +723,15 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 40px;
   font-weight: normal;
-  color: #2b0202;
+  color: #fff;
 }
 
 .contact-me-pg .contact-me-container .title p {
   font-size: 16px;
   font-style: italic;
   margin-bottom: 50px;
+  color: ivory;
+  letter-spacing: 1px;
 }
 
 .contact-me-pg .contact-me-container .contact-me-wrapper form {
@@ -745,10 +745,10 @@ body {
 
 .contact-me-pg .contact-me-container .contact-me-wrapper form .label1 label, .contact-me-pg .contact-me-container .contact-me-wrapper form .label2 label {
   font-size: 18px;
-  font-weight: normal;
+  font-weight: 900;
   text-transform: capitalize;
   font-style: italic;
-  color: #2b0202;
+  color: #0c0c0f;
 }
 
 .contact-me-pg .contact-me-container .contact-me-wrapper form .label1 input, .contact-me-pg .contact-me-container .contact-me-wrapper form .label2 input {
