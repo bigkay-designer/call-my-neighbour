@@ -83,7 +83,7 @@ app.get('*', (req, res) => {
 //==============================
 // set the port
 let host = '0.0.0.0'
-let port = process.env.PORT || 3000
+let port = process.env.PORT || 5000
 app.listen(port, host , () => {
   console.log('server has started ' + port);
 });

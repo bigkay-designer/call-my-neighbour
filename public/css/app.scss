@@ -437,9 +437,10 @@ body {
     background-color: #4f6385;
     padding: 10px;
     border-radius: 21px;
-    max-width: 40%;
+    max-width: fit-content;
     margin: auto ;
     h1{
+      padding: 10px 30px;
       color: #fff;
       letter-spacing: 1px;
       font-size: 38px;
@@ -459,6 +460,10 @@ body {
       text-transform: uppercase;
     }
     .intro{
+      background-color: rgba(211, 211, 211, 0.4);
+      padding: 10px 20px;
+      box-shadow: 0px 3px 10px grey;
+      margin: 20px 10px;
       p{
         margin-top: -10px;
         color: rgb(20, 20, 20);
@@ -474,6 +479,7 @@ body {
       padding: 10px 20px;
       border-radius: 8px;
       margin: 20px 10px;
+      box-shadow: 0px 3px 10px grey;
       p{
         margin-top: 13px;
         font-size: 18px;
@@ -544,8 +550,10 @@ body {
         grid-template-columns: repeat(1, 1fr);
         margin: 10px 0 0 0;
         .content{
+            border-radius: 30px;
             background: rgb(68,76,99);
             background: linear-gradient(90deg, rgb(84, 55, 90) 0%, rgba(74,101,176,1) 66%, rgb(58, 63, 83) 100%);            padding: 10px;
+            box-shadow: 0px 3px 10px grey;
             p{
                 font-size: 18px;
                 margin: 0;
@@ -1079,19 +1087,27 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
   margin-top: 60px;
 
   .container {
-    background-color: rgb(239, 243, 248);
+    // background-color: rgb(239, 243, 248);
     margin-bottom: 0px;
+    background-color: #242F3E;
+    color: #fff;
 
     .dark-bg {
-      background-color: #242F3E;
-      color: #fff;
       padding: 15px 0;
       .copyright {
           padding: 10px 10px 0 10px;
           text-align: center;
-          font-size: 22px;
+          font-size: 18px;
           text-transform: capitalize;
           font-weight: normal;
+          a{
+            text-decoration: none;
+            color: inherit;
+            text-transform: lowercase;
+            &:hover{
+              color: grey;
+            }
+          }
       }
       .nav {
         padding: 10px 0;
@@ -1107,6 +1123,7 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
             color: #fff;
             &:hover {
               text-decoration: underline;
+              color: rgb(189, 188, 188);
             }
           }
           .main-links{
@@ -1641,8 +1658,11 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
       }
     .main-footer{
       .container{
+        .dark-bg{
+          max-width: 75%;
+          margin: 0 auto;
+        }
         .nav{
-          
           .contact{
             max-width: 75% !important;
             margin: auto;
@@ -1654,6 +1674,19 @@ background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
         }
       }
     }     
+}
+
+@media only screen and (min-width: 1300px){
+  .main-footer{
+    .container{
+      .nav{
+        nav{
+          max-width: 65%;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
 }
 
 //////////////////==================///////////////////
