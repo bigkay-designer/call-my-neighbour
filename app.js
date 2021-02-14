@@ -26,7 +26,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 let authRoute = require('./routes/auth')
 let profileRoute = require('./routes/profile')
 
-mongoose.connect('mongodb+srv://bkdesigner:alaah111@cluster0-5uuok.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB__URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
